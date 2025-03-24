@@ -9,10 +9,14 @@
 </head>
 <body>
     <div class="container">
-        <div class="buttons">
-            <button id="theme-toggle">🌙 Modo Oscuro</button>
-            <button id="lang-es">🇪🇸 Español</button>
-            <button id="lang-en">🇬🇧 English</button>
+        <div class="header">
+            <div class="theme-toggle">
+                <button id="theme-toggle">🌙</button>
+            </div>
+            <div class="language-switch">
+                <span id="lang-es" class="lang-option">ES</span> | 
+                <span id="lang-en" class="lang-option">EN</span>
+            </div>
         </div>
 
         <header>
@@ -30,38 +34,40 @@
             </p>
         </section>
 
-        <section class="habilidades">
-            <h3 id="skills-title">Habilidades Técnicas</h3>
-            <ul>
-                <li><strong id="languages-title">Lenguajes:</strong> <span id="languages-list">Java, C++, Python, JavaScript, SQL.</span></li>
-                <li><strong id="web-tech-title">Tecnologías Web:</strong> <span id="web-tech-list">HTML5, CSS3.</span></li>
-                <li><strong id="tools-title">Herramientas:</strong> <span id="tools-list">Git, Linux, VS Code, Oracle, Eclipse, Figma, Trello.</span></li>
-                <li><strong id="methodologies-title">Metodologías:</strong> <span id="methodologies-list">Scrum.</span></li>
-            </ul>
-        </section>
-
         <section class="formacion">
             <h3 id="education-title">Formación Académica</h3>
             <ul>
-                <li id="ede"><strong>Curso de Java</strong> - <span id="ede-details">Fundación EDE (Octubre 2024 - Diciembre 2024)</span></li>
-                <li id="peñascal"><strong>Bootcamp Desarrollo Web Full-Stack</strong> - <span id="peñascal-details">Fundación Peñascal (Noviembre 2023 - Junio 2024)</span></li>
-                <li id="urduliz"><strong>Piscina Urduliz 42</strong> - <span id="urduliz-details">(Octubre 2023)</span></li>
-                <li id="android"><strong>Curso Programación Aplicaciones Android</strong> - <span id="android-details">Fundación EDE (Octubre 2022 - Marzo 2023)</span></li>
-                <li id="certification"><strong>Certificado Profesionalidad Sistemas Informáticos</strong> - <span id="certification-details">IFAP (2017)</span></li>
-                <li id="highschool"><strong>Estudios de Bachillerato</strong> - <span id="highschool-details">I.E.S Errekaldeberri (2000)</span></li>
+                <li><strong id="java-course">Curso de Java</strong> - <span id="java-details">Fundación EDE (Octubre 2024 - Diciembre 2024)</span></li>
+                <li><strong id="bootcamp">Bootcamp Desarrollo Web Full-Stack</strong> - <span id="bootcamp-details">Fundación Peñascal (Noviembre 2023 - Junio 2024)</span></li>
+                <li><strong id="urduliz">Piscina Urduliz 42</strong> - <span id="urduliz-details">(Octubre 2023)</span></li>
+                <li><strong id="android-course">Curso Programación Aplicaciones Android</strong> - <span id="android-details">Fundación EDE (Octubre 2022 - Marzo 2023)</span></li>
+                <li><strong id="certification">Certificado de Profesionalidad en Sistemas Microinformáticos</strong> - <span id="certification-details">IFAP (2017)</span></li>
+                <li><strong id="highschool">Estudios de Bachillerato</strong> - <span id="highschool-details">I.E.S Errekaldeberri (2000)</span></li>
             </ul>
         </section>
 
         <section class="experiencia">
             <h3 id="experience-title">Experiencia Laboral</h3>
             <ul>
-                <li><strong>D&A Innovative Systems</strong> (2024 - <span id="internships">Prácticas</span>)</li>
-                <li><strong>Aduogroup Bilbao</strong> (2017 - <span id="internships2">Prácticas</span>)</li>
-                <li id="pesaje"><strong>Pesaje del Norte - Bilbao</strong> (2008)</li>
-                <li id="manufacturing"><strong>Sector Industria Manufacturera</strong> (2002 - 2008)</li>
-                <li id="healthcare"><strong>Sector Socio-Sanitario</strong> (2016)</li>
-                <li id="commerce"><strong>Sector Comercial</strong> (2012)</li>
-                <li id="hospitality"><strong>Sector Hostelería</strong> (2015 - 2018)</li>
+                <li><strong>D&A Innovative Systems</strong> (<span id="internships">2024 - Prácticas</span>)<br>
+                    - Desarrollo de procesamiento de datos en C++.</li>
+                <li><strong>Aduogroup Bilbao</strong> (<span id="internships2">2017 - Prácticas</span>)<br>
+                    - Instalación y configuración de servidores Windows Server 2012.</li>
+                <li><strong id="pesaje">Pesaje del Norte - Bilbao</strong> (2008)<br>
+                    - Informatización de datos con software específico.</li>
+                <li><strong id="manufacturing">Sector Industria Manufacturera</strong> (2002 - 2008)</li>
+                <li><strong id="healthcare">Sector Socio-Sanitario</strong> (2016)</li>
+                <li><strong id="commerce">Sector Comercial</strong> (2012)</li>
+                <li><strong id="hospitality">Sector Hostelería</strong> (2015 - 2018)</li>
+            </ul>
+        </section>
+
+        <section class="idiomas">
+            <h3 id="languages-title">Idiomas</h3>
+            <ul>
+                <li id="spanish">Castellano (nativo)</li>
+                <li id="basque">Euskera (básico)</li>
+                <li id="english">Inglés (técnico)</li>
             </ul>
         </section>
 
@@ -69,6 +75,9 @@
             <h3 id="contact-title">Contacto</h3>
             <p id="contact-text">📍 Bilbao, 48013</p>
             <p>📧 <a href="mailto:agustinacalleja@gmail.com">agustinacalleja@gmail.com</a></p>
+            <p>🔗 <a id="linkedin" href="https://www.linkedin.com/in/tina-calleja" target="_blank">LinkedIn</a></p>
+            <p>🔗 <a id="github" href="https://github.com/usertina" target="_blank">GitHub</a></p>
+            <p>🔗 <a id="portfolio" href="https://portfolio-seguridad-tina-calleja.netlify.app/" target="_blank">Portfolio</a></p>
         </section>
     </div>
 </body>
