@@ -93,39 +93,18 @@ section {
 
 button {
     display: block;
-    margin: 20px auto;
-    padding: 10px 15px;
-    background: white;
-    color: #1e3c72;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-button:hover {
-    background: #ddd;
-}
-.buttons {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-button {
-    padding: 10px 15px;
     margin: 5px;
+    padding: 10px 15px;
+    background: #2a5298;
+    color: #1e3c72;
     border: none;
     cursor: pointer;
     border-radius: 5px;
     font-size: 14px;
 }
 
-#theme-toggle {
-    background: #1e3c72;
-    color: white;
-}
-
-#theme-toggle:hover {
-    background: #2a5298;
+button:hover {
+    background: #ddd;
 }
 
 #lang-es, #lang-en {
@@ -152,15 +131,4 @@ button {
 
 .lang-option:hover {
     text-decoration: underline;
-}
-.theme-toggle button {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 20px;
-    cursor: pointer;
-}
-
-.theme-toggle button:hover {
-    opacity: 0.7;
 }

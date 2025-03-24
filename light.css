@@ -90,18 +90,37 @@ section {
     padding: 15px;
     border-radius: 5px;
 }
-
 button {
     display: block;
-    margin: 20px auto;
+    margin: 5px;
     padding: 10px 15px;
-    background: #1e3c72;
-    color: white;
+    background: #ccd9e0;
+    color: #a3b8c9;
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    font-size: 14px;
 }
 
 button:hover {
-    background: #2a5298;
+    background: #ddd;
+}
+
+
+.language-switch {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #1e3c72;
+    cursor: pointer;
+}
+
+.language-switch span {
+    margin: 0 5px;
+}
+
+.language-switch span:hover {
+    text-decoration: underline;
 }
