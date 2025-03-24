@@ -23,9 +23,16 @@ document.addEventListener("DOMContentLoaded", function() {
             Mi formación intensiva en desarrollo web, junto con mi actual formación en seguridad informática, me ha permitido adquirir habilidades clave en programación, análisis de datos y gestión eficiente de procesos.
             Además, mi experiencia en diversos sectores me ha brindado una gran capacidad de adaptación, pensamiento analítico y trabajo en equipo, habilidades esenciales tanto en entornos de desarrollo como en la resolución de desafíos en ciberseguridad.`,
             skillsTitle: "Habilidades Técnicas",
+            languagesTitle: "Lenguajes",
+            webTechTitle: "Tecnologías Web",
+            toolsTitle: "Herramientas",
+            methodologiesTitle: "Metodologías",
             educationTitle: "Formación Académica",
+            peñascal: "Fundación Peñascal",
+            ede: "Fundación EDE",
             experienceTitle: "Experiencia Laboral",
-            languagesTitle: "Idiomas",
+            internships: "Prácticas",
+            languages: "Idiomas",
             spanish: "Castellano (nativo)",
             basque: "Euskera (básico)",
             english: "Inglés (técnico)",
@@ -40,9 +47,16 @@ document.addEventListener("DOMContentLoaded", function() {
             My intensive training in web development, along with my current studies in cybersecurity, has allowed me to acquire key skills in programming, data analysis, and efficient process management.
             Additionally, my experience in various sectors has given me a strong ability to adapt, analytical thinking, and teamwork—essential skills both in development environments and in solving cybersecurity challenges.`,
             skillsTitle: "Technical Skills",
+            languagesTitle: "Programming Languages",
+            webTechTitle: "Web Technologies",
+            toolsTitle: "Tools",
+            methodologiesTitle: "Methodologies",
             educationTitle: "Education",
+            peñascal: "Peñascal Foundation",
+            ede: "EDE Foundation",
             experienceTitle: "Work Experience",
-            languagesTitle: "Languages",
+            internships: "Internships",
+            languages: "Languages",
             spanish: "Spanish (native)",
             basque: "Basque (basic)",
             english: "English (technical)",
@@ -56,11 +70,18 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("name").textContent = texts[lang].name;
         document.getElementById("title").textContent = texts[lang].title;
         document.getElementById("about-title").textContent = texts[lang].aboutTitle;
-        document.getElementById("about-text").innerHTML = texts[lang].aboutText.replace(/\n/g, "<br>"); // Agrega saltos de línea
+        document.getElementById("about-text").innerHTML = texts[lang].aboutText.replace(/\n/g, "<br>");
         document.getElementById("skills-title").textContent = texts[lang].skillsTitle;
-        document.getElementById("education-title").textContent = texts[lang].educationTitle;
-        document.getElementById("experience-title").textContent = texts[lang].experienceTitle;
         document.getElementById("languages-title").textContent = texts[lang].languagesTitle;
+        document.getElementById("web-tech-title").textContent = texts[lang].webTechTitle;
+        document.getElementById("tools-title").textContent = texts[lang].toolsTitle;
+        document.getElementById("methodologies-title").textContent = texts[lang].methodologiesTitle;
+        document.getElementById("education-title").textContent = texts[lang].educationTitle;
+        document.getElementById("peñascal").textContent = texts[lang].peñascal;
+        document.getElementById("ede").textContent = texts[lang].ede;
+        document.getElementById("experience-title").textContent = texts[lang].experienceTitle;
+        document.getElementById("internships").textContent = texts[lang].internships;
+        document.getElementById("languages-title").textContent = texts[lang].languages;
         document.getElementById("spanish").textContent = texts[lang].spanish;
         document.getElementById("basque").textContent = texts[lang].basque;
         document.getElementById("english").textContent = texts[lang].english;
