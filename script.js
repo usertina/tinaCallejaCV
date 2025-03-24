@@ -28,12 +28,12 @@ document.addEventListener("DOMContentLoaded", function() {
             toolsTitle: "Herramientas",
             methodologiesTitle: "Metodologías",
             educationTitle: "Formación Académica",
-            peñascal: "Fundación Peñascal",
-            ede: "Fundación EDE",
-            urduliz: "Piscina Urduliz 42",
-            android: "Curso Programación Aplicaciones Android",
-            certification: "Certificado Profesionalidad Sistemas Informáticos",
-            highschool: "Estudios de Bachillerato",
+            peñascalDetails: "Fundación Peñascal (Noviembre 2023 - Junio 2024)",
+            edeDetails: "Fundación EDE (Octubre 2024 - Diciembre 2024)",
+            urdulizDetails: "(Octubre 2023)",
+            androidDetails: "Fundación EDE (Octubre 2022 - Marzo 2023)",
+            certificationDetails: "IFAP (2017)",
+            highschoolDetails: "I.E.S Errekaldeberri (2000)",
             experienceTitle: "Experiencia Laboral",
             internships: "Prácticas",
             internships2: "Prácticas",
@@ -63,12 +63,12 @@ document.addEventListener("DOMContentLoaded", function() {
             toolsTitle: "Tools",
             methodologiesTitle: "Methodologies",
             educationTitle: "Education",
-            peñascal: "Peñascal Foundation",
-            ede: "EDE Foundation",
-            urduliz: "42 Urduliz Piscine",
-            android: "Android App Development Course",
-            certification: "Professional Certification in IT Systems",
-            highschool: "High School Studies",
+            peñascalDetails: "Peñascal Foundation (November 2023 - June 2024)",
+            edeDetails: "EDE Foundation (October 2024 - December 2024)",
+            urdulizDetails: "(October 2023)",
+            androidDetails: "EDE Foundation (October 2022 - March 2023)",
+            certificationDetails: "IFAP (2017)",
+            highschoolDetails: "I.E.S Errekaldeberri (2000)",
             experienceTitle: "Work Experience",
             internships: "Internships",
             internships2: "Internships",
@@ -99,12 +99,12 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("tools-title").textContent = texts[lang].toolsTitle;
         document.getElementById("methodologies-title").textContent = texts[lang].methodologiesTitle;
         document.getElementById("education-title").textContent = texts[lang].educationTitle;
-        document.getElementById("peñascal").textContent = texts[lang].peñascal;
-        document.getElementById("ede").textContent = texts[lang].ede;
-        document.getElementById("urduliz").textContent = texts[lang].urduliz;
-        document.getElementById("android").textContent = texts[lang].android;
-        document.getElementById("certification").textContent = texts[lang].certification;
-        document.getElementById("highschool").textContent = texts[lang].highschool;
+        document.getElementById("peñascal-details").textContent = texts[lang].peñascalDetails;
+        document.getElementById("ede-details").textContent = texts[lang].edeDetails;
+        document.getElementById("urduliz-details").textContent = texts[lang].urdulizDetails;
+        document.getElementById("android-details").textContent = texts[lang].androidDetails;
+        document.getElementById("certification-details").textContent = texts[lang].certificationDetails;
+        document.getElementById("highschool-details").textContent = texts[lang].highschoolDetails;
         document.getElementById("experience-title").textContent = texts[lang].experienceTitle;
         document.getElementById("internships").textContent = texts[lang].internships;
         document.getElementById("internships2").textContent = texts[lang].internships2;
@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("contact-text").textContent = texts[lang].contactText;
     }
 
-    // Agregar event listeners a los botones de idioma
+    // Event listeners para cambiar el idioma
     document.getElementById("lang-es").addEventListener("click", function() {
         changeLanguage("es");
     });
