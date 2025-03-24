@@ -105,3 +105,34 @@ button {
 button:hover {
     background: #ddd;
 }
+.buttons {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+#theme-toggle {
+    background: #1e3c72;
+    color: white;
+}
+
+#theme-toggle:hover {
+    background: #2a5298;
+}
+
+#lang-es, #lang-en {
+    background: #f5f5f5;
+    color: #333;
+}
+
+#lang-es:hover, #lang-en:hover {
+    background: #ddd;
+}
