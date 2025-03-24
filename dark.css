@@ -136,3 +136,31 @@ button {
 #lang-es:hover, #lang-en:hover {
     background: #ddd;
 }
+.language-switch {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.lang-option {
+    color: white;
+    padding: 5px;
+}
+
+.lang-option:hover {
+    text-decoration: underline;
+}
+.theme-toggle button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.theme-toggle button:hover {
+    opacity: 0.7;
+}
