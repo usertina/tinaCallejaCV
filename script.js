@@ -2,13 +2,17 @@ document.addEventListener("DOMContentLoaded", function() {
     // Cambio de tema (Modo claro/oscuro)
     document.getElementById("theme-toggle").addEventListener("click", function() {
         let themeStyle = document.getElementById("theme-style");
+        let themeButton = document.getElementById("theme-toggle");
 
         if (themeStyle.getAttribute("href") === "light.css") {
-            themeStyle.setAttribute("href", "dark.css");
+            themeStyle.setAttribute("href", "dark.css"); // Cambiar a modo oscuro
+            themeButton.textContent = "🌞"; // Cambiar icono a sol
         } else {
-            themeStyle.setAttribute("href", "light.css");
+            themeStyle.setAttribute("href", "light.css"); // Cambiar a modo claro
+            themeButton.textContent = "🌙"; // Cambiar icono a luna
         }
     });
+
 
     // Textos en español e inglés
     const texts = {
@@ -157,7 +161,7 @@ document.addEventListener("DOMContentLoaded", function() {
             "internships", "internships-details", "internships2", "internships2-details",
             "pesaje", "pesaje-details", "manufacturing", "healthcare", "commerce", "hospitality"
         ];
-        
+
         experienceElements.forEach(id => {
             if (document.getElementById(id)) {
                 document.getElementById(id).textContent = texts[lang][id];
