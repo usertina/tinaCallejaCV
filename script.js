@@ -118,8 +118,60 @@ document.addEventListener("DOMContentLoaded", function() {
             "healthcare": "Healthcare Sector (2016)",
             "commerce": "Commercial Sector (2012)",
             "hospitality": "Hospitality Sector (2015 - 2018)",
+        },
+        eu: {
+            pageTitle: "Tina Calleja - CV",
+            name: "Tina Calleja",
+            title: "Full Stack Web Garatzailea",
+            aboutTitle: "Niri Buruz",
+            aboutText: `Full-stack web garatzailea naiz, backend eta frontend esperientziarekin, teknologiaren eta zibersegurtasunaren zale.
+            Web garapeneko prestakuntza intentsiboari eta zibersegurtasunean egiten ari naizen ikasketei esker, programazioan, datuen analisian eta prozesuen kudeaketa eraginkorrean trebetasun garrantzitsuak eskuratu ditut.
+            Horrez gain, sektore ezberdinetako esperientziari esker, egokitzeko gaitasun handia, pentsamendu analitikoa eta talde-lanerako trebetasuna lortu ditut, bai garapen-inguruneetan bai zibersegurtasun erronkei aurre egitean funtsezkoak diren gaitasunak.`,
+            educationTitle: "Hezkuntza",
+            experienceTitle: "Lan Esperientzia",
+            languagesTitle: "Hizkuntzak",
+            contactTitle: "Kontaktua",
+            contactText: "📍 Bilbo, 48013",
+            linkedin: "LinkedIn",
+            github: "GitHub",
+            portfolio: "Portfolio",
+            spanish: "Gaztelania (ama hizkuntza)",
+            basque: "Euskara (oinarrizkoa)",
+            english: "Ingelesa (teknikoa)",
+
+           // Hezkuntza
+"java-course": "Java Ikastaroa",
+"java-details": "Fundación EDE (2024ko Urria - 2024ko Abendua)",
+"java-description": "210 ordu, Objektuetara Bideratutako Programazioa, kontrol-egiturak eta erlazionatutako datu-baseen kudeaketa.",
+"bootcamp": "Full-Stack Web Garapen Bootcampa",
+"bootcamp-details": "Kooperatiba Peñascal (2023ko Azaroa - 2024ko Ekaina)",
+"bootcamp-description": "775 orduko prestakuntza intentsiboa full-stack web garapenean.",
+"urduliz": "Urduliz 42 Igerilekua",
+"urduliz-details": "(2023ko Urria)",
+"urduliz-description": "C hizkuntzan prestakuntza, gamifikazioa eta ikaskuntza kolaboratiboa erabiliz macOS ingurune batean.",
+"android-course": "Android Aplikazioen Garapen Ikastaroa",
+"android-details": "Fundación EDE (2022ko Urria - 2023ko Martxoa)",
+"android-description": "350 ordu, Java eta SQL erabiliz aplikazio natiboen garapenean.",
+"certification": "Sistema Mikroinformatikoen Profesionaltasun Ziurtagiria",
+"certification-details": "IFAP (2017)",
+"certification-description": "560 ordu sistema eragileetan eta sareen instalazio eta konfigurazioan.",
+"highschool": "Batxilergoko Ikasketak",
+"highschool-details": "I.E.S Errekaldeberri (2000)",
+
+// Lan Esperientzia
+"internships": "2024 - Praktikak",
+"internships-details": "Datu-prozesamenduaren garapena C++-n.",
+"internships2": "2017 - Praktikak",
+"internships2-details": "Windows Server 2012 instalazioa eta konfigurazioa.",
+"pesaje": "Pesaje del Norte - Bilbo",
+"pesaje-details": "Datuen digitalizazioa software espezializatua erabiliz.",
+"manufacturing": "Industria Ekoizpen Sektorea (2002 - 2008)",
+"healthcare": "Gizarte-Osasun Sektorea (2016)",
+"commerce": "Merkataritza Sektorea (2012)",
+"hospitality": "Ostalari Sektorea (2015 - 2018)",
+
         }
-    };
+};
 
     // Función para cambiar el idioma
     function changeLanguage(lang) {
@@ -172,4 +224,6 @@ document.addEventListener("DOMContentLoaded", function() {
     // Listeners para los botones de cambio de idioma
     document.getElementById("lang-es").addEventListener("click", () => changeLanguage("es"));
     document.getElementById("lang-en").addEventListener("click", () => changeLanguage("en"));
+    document.getElementById("lang-eu").addEventListener("click", () => changeLanguage("eu"));
 });
+
