@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
             "android-description": "350 horas de desarrollo de aplicaciones nativas con Java y SQL.",
             "certification": "Certificado Profesionalidad Sistemas Microinformáticos",
             "certification-details": "IFAP (2017)",
-            "certification-description": " 560 horas en instalación y configuración de sistemas operativos y redes.",
+            "certification-description": " 560 horas en instalación y configuración de sistemas operativos, servidores y redes.",
             "highschool": "Estudios de Bachillerato",
             "highschool-details": "I.E.S Errekaldeberri (2000)",
 
@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function() {
             "android-description": "350 hours of native app development with Java and SQL.",
             "certification": "Professional Certificate in IT Systems",
             "certification-details": "IFAP (2017)",
-            "certification-description": "560 hours in operating systems and network installation and configuration.",
+            "certification-description": "560 hours in operating systems, servers and network installation and configuration.",
             "highschool": "High School Studies",
             "highschool-details": "I.E.S Errekaldeberri (2000)",
 
@@ -154,7 +154,7 @@ document.addEventListener("DOMContentLoaded", function() {
 "android-description": "350 ordu, Java eta SQL erabiliz aplikazio natiboen garapenean.",
 "certification": "Sistema Mikroinformatikoen Profesionaltasun Ziurtagiria",
 "certification-details": "IFAP (2017)",
-"certification-description": "560 ordu sistema eragileetan eta sareen instalazio eta konfigurazioan.",
+"certification-description": "560 ordu sistema eragileetan, zerbitzariak eta sareen instalazio eta konfigurazioan.",
 "highschool": "Batxilergoko Ikasketak",
 "highschool-details": "I.E.S Errekaldeberri (2000)",
 
