@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function() {
             linkedin: "LinkedIn",
             github: "GitHub",
             portfolio: "Portfolio",
+            curriculum: "Currículum Vitae",
             spanish: "Castellano (nativo)",
             basque: "Euskera (básico)",
             english: "Inglés (técnico)",
@@ -51,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function() {
             "android-description": "350 horas de desarrollo de aplicaciones nativas con Java y SQL.",
             "certification": "Certificado Profesionalidad Sistemas Microinformáticos",
             "certification-details": "IFAP (2017)",
-            "certification-description": " 560 horas en instalación y configuración de sistemas operativos y redes.",
+            "certification-description": " 560 horas en instalación y configuración de sistemas operativos, servidores y redes.",
             "highschool": "Estudios de Bachillerato",
             "highschool-details": "I.E.S Errekaldeberri (2000)",
 
@@ -84,6 +85,7 @@ document.addEventListener("DOMContentLoaded", function() {
             linkedin: "LinkedIn",
             github: "GitHub",
             portfolio: "Portfolio",
+            curriculum: "Currículum Vitae",
             spanish: "Spanish (native)",
             basque: "Basque (basic)",
             english: "English (technical)",
@@ -135,6 +137,7 @@ document.addEventListener("DOMContentLoaded", function() {
             linkedin: "LinkedIn",
             github: "GitHub",
             portfolio: "Portfolio",
+            curriculum: "Currículum Vitae",
             spanish: "Gaztelania (ama hizkuntza)",
             basque: "Euskara (oinarrizkoa)",
             english: "Ingelesa (teknikoa)",
@@ -188,6 +191,7 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("linkedin").textContent = texts[lang].linkedin;
         document.getElementById("github").textContent = texts[lang].github;
         document.getElementById("portfolio").textContent = texts[lang].portfolio;
+        document.getElementById("curriculum").textContent = texts[lang].curriculum;
         document.getElementById("spanish").textContent = texts[lang].spanish;
         document.getElementById("basque").textContent = texts[lang].basque;
         document.getElementById("english").textContent = texts[lang].english;
