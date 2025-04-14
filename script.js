@@ -38,6 +38,9 @@ document.addEventListener("DOMContentLoaded", function() {
             english: "Inglés (técnico)",
 
             // Formación Académica
+            "cybersecurity": "Seguridad Informática (IFCT0109)",
+            "cybersecurity-details": "EDE Fundazioa (Febrero 2025 - Junio 2025)",
+            "cybersecurity-description": "420 horas en análisis de vulnerabilidades, protección de sistemas, detección de amenazas y prácticas con Raspberry Pi Pico y programación en MicroPython orientadas a seguridad y control de dispositivos.",
             "java-course": "Curso de Java",
             "java-details": "Fundación EDE (Octubre 2024 - Diciembre 2024)",
             "java-description": "210 horas en Programación Orientada a Objetos, estructuras de control y gestión de bases de datos relacionales.",
@@ -91,6 +94,9 @@ document.addEventListener("DOMContentLoaded", function() {
             english: "English (technical)",
 
             // Academic Background
+            "cybersecurity": "Cybersecurity (IFCT0109)",
+            "cybersecurity-details": "EDE Foundation (February 2025 - June 2025)",
+            "cybersecurity-description": "420 hours in vulnerability analysis, system protection, threat detection, and hands-on practice with Raspberry Pi Pico and MicroPython programming focused on security and device control.",
             "java-course": "Java Course",
             "java-details": "Fundación EDE (October 2024 - December 2024)",
             "java-description": "210 hours in Object-Oriented Programming, control structures, and relational database management.",
@@ -143,23 +149,26 @@ document.addEventListener("DOMContentLoaded", function() {
             english: "Ingelesa (teknikoa)",
 
            // Hezkuntza
-"java-course": "Java Ikastaroa",
-"java-details": "Fundación EDE (2024ko Urria - 2024ko Abendua)",
-"java-description": "210 ordu, Objektuetara Bideratutako Programazioa, kontrol-egiturak eta erlazionatutako datu-baseen kudeaketa.",
-"bootcamp": "Full-Stack Web Garapen Bootcampa",
-"bootcamp-details": "Kooperatiba Peñascal (2023ko Azaroa - 2024ko Ekaina)",
-"bootcamp-description": "775 orduko prestakuntza intentsiboa full-stack web garapenean.",
-"urduliz": "Urduliz 42 Igerilekua",
-"urduliz-details": "(2023ko Urria)",
-"urduliz-description": "C hizkuntzan prestakuntza, gamifikazioa eta ikaskuntza kolaboratiboa erabiliz macOS ingurune batean.",
-"android-course": "Android Aplikazioen Garapen Ikastaroa",
-"android-details": "Fundación EDE (2022ko Urria - 2023ko Martxoa)",
-"android-description": "350 ordu, Java eta SQL erabiliz aplikazio natiboen garapenean.",
-"certification": "Sistema Mikroinformatikoen Profesionaltasun Ziurtagiria",
-"certification-details": "IFAP (2017)",
-"certification-description": "560 ordu sistema eragileetan, zerbitzariak eta sareen instalazio eta konfigurazioan.",
-"highschool": "Batxilergoko Ikasketak",
-"highschool-details": "I.E.S Errekaldeberri (2000)",
+            "cybersecurity": "Zibersegurtasuna (IFCT0109)",
+            "cybersecurity-details": "EDE Fundazioa (2025eko Otsaila - 2025eko Ekaina)",
+            "cybersecurity-description": "420 ordu ahultasunak aztertzen, sistemak babesten, mehatxuak detektatzen eta Raspberry Pi Pico-rekin eta MicroPython programazioarekin segurtasunerako eta gailuen kontrolerako praktikak egiten.",
+            "java-course": "Java Ikastaroa",
+            "java-details": "Fundación EDE (2024ko Urria - 2024ko Abendua)",
+            "java-description": "210 ordu, Objektuetara Bideratutako Programazioa, kontrol-egiturak eta erlazionatutako datu-baseen kudeaketa.",
+            "bootcamp": "Full-Stack Web Garapen Bootcampa",
+            "bootcamp-details": "Kooperatiba Peñascal (2023ko Azaroa - 2024ko Ekaina)",
+            "bootcamp-description": "775 orduko prestakuntza intentsiboa full-stack web garapenean.",
+            "urduliz": "Urduliz 42 Igerilekua",
+            "urduliz-details": "(2023ko Urria)",
+            "urduliz-description": "C hizkuntzan prestakuntza, gamifikazioa eta ikaskuntza kolaboratiboa erabiliz macOS ingurune batean.",
+            "android-course": "Android Aplikazioen Garapen Ikastaroa",
+            "android-details": "Fundación EDE (2022ko Urria - 2023ko Martxoa)",
+            "android-description": "350 ordu, Java eta SQL erabiliz aplikazio natiboen garapenean.",
+            "certification": "Sistema Mikroinformatikoen Profesionaltasun Ziurtagiria",
+            "certification-details": "IFAP (2017)",
+            "certification-description": "560 ordu sistema eragileetan, zerbitzariak eta sareen instalazio eta konfigurazioan.",
+            "highschool": "Batxilergoko Ikasketak",
+            "highschool-details": "I.E.S Errekaldeberri (2000)",
 
 // Lan Esperientzia
 "internships": "2024 - Praktikak",
@@ -198,12 +207,15 @@ document.addEventListener("DOMContentLoaded", function() {
     
         // Actualizar textos de la formación académica
         const educationElements = [
-            "java-course", "java-details", "java-description",
-            "bootcamp", "bootcamp-details", "bootcamp-description",
-            "urduliz", "urduliz-details", "urduliz-description",
-            "android-course", "android-details", "android-description",
-            "certification", "certification-details", "certification-description",
-            "highschool", "highschool-details"
+            const educationElements = [
+    "java-course", "java-details", "java-description",
+    "bootcamp", "bootcamp-details", "bootcamp-description",
+    "urduliz", "urduliz-details", "urduliz-description",
+    "android-course", "android-details", "android-description",
+    "certification", "certification-details", "certification-description",
+    "highschool", "highschool-details",
+    "cybersecurity", "cybersecurity-details", "cybersecurity-description" // << AÑADIDO AQUÍ
+];
         ];
 
         educationElements.forEach(id => {
