@@ -215,7 +215,6 @@ document.addEventListener("DOMContentLoaded", function() {
     "highschool", "highschool-details",
     "cybersecurity", "cybersecurity-details", "cybersecurity-description" // << AÑADIDO AQUÍ
 ];
-        ];
 
         educationElements.forEach(id => {
             if (document.getElementById(id)) {
