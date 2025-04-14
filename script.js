@@ -207,7 +207,6 @@ document.addEventListener("DOMContentLoaded", function() {
     
         // Actualizar textos de la formación académica
         const educationElements = [
-            const educationElements = [
     "java-course", "java-details", "java-description",
     "bootcamp", "bootcamp-details", "bootcamp-description",
     "urduliz", "urduliz-details", "urduliz-description",
