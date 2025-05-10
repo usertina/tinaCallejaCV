@@ -12,7 +12,29 @@ document.addEventListener("DOMContentLoaded", function() {
             themeButton.textContent = "🌙"; // Cambiar icono a luna
         }
     });
+// Función para actualizar fecha y hora
+function updateDateTime() {
+    const now = new Date();
+    const options = { 
+        weekday: 'long', 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+    };
+    
+    // Formatear según idioma seleccionado
+    const lang = localStorage.getItem('language') || 'es';
+    const dateTimeStr = now.toLocaleDateString(lang, options);
+    
+    document.getElementById('current-date-time').textContent = dateTimeStr;
+}
 
+// Actualizar inmediatamente y cada segundo
+updateDateTime();
+setInterval(updateDateTime, 1000);
 
     // Textos en español e inglés
     const texts = {
@@ -71,7 +93,9 @@ document.addEventListener("DOMContentLoaded", function() {
         "healthcare": "Sector Socio-Sanitario (2016)",
         "commerce": "Sector Comercial (2012)",
         "hospitality": "Sector Hostelería (2015 - 2018)",
-        },
+        
+copyright: "© 2024 Tina Calleja - Todos los derechos reservados"
+    },
         en: {
             pageTitle: "Tina Calleja - Resume",
             name: "Tina Calleja",
@@ -126,7 +150,9 @@ document.addEventListener("DOMContentLoaded", function() {
             "healthcare": "Healthcare Sector (2016)",
             "commerce": "Commercial Sector (2012)",
             "hospitality": "Hospitality Sector (2015 - 2018)",
-        },
+       
+copyright: "© 2024 Tina Calleja - All rights reserved"
+    },
         eu: {
             pageTitle: "Tina Calleja - CV",
             name: "Tina Calleja",
@@ -181,6 +207,7 @@ document.addEventListener("DOMContentLoaded", function() {
 "healthcare": "Gizarte-Osasun Sektorea (2016)",
 "commerce": "Merkataritza Sektorea (2012)",
 "hospitality": "Ostalari Sektorea (2015 - 2018)",
+copyright: "© 2024 Tina Calleja - Eskubide guztiak erreserbatuta",
 
         }
 };
@@ -201,6 +228,8 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("github").textContent = texts[lang].github;
         document.getElementById("portfolio").textContent = texts[lang].portfolio;
         document.getElementById("curriculum").textContent = texts[lang].curriculum;
+    document.getElementById("copyright").textContent = texts[lang].copyright;
+    updateDateTime(); 
         document.getElementById("spanish").textContent = texts[lang].spanish;
         document.getElementById("basque").textContent = texts[lang].basque;
         document.getElementById("english").textContent = texts[lang].english;
