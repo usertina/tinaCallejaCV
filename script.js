@@ -23,9 +23,16 @@ document.addEventListener("DOMContentLoaded", function() {
         const lang = document.documentElement.lang || savedLang;
         const options = texts[lang].dateFormat;
         
-        document.getElementById('current-date-time').textContent = 
-            now.toLocaleDateString(lang, options) + ' ' + 
-            now.toLocaleTimeString(lang, options);
+        try {
+            const dateStr = now.toLocaleDateString(lang, options);
+            const timeStr = now.toLocaleTimeString(lang, options);
+            document.getElementById('current-date-time').textContent = `${dateStr} ${timeStr}`;
+        } catch (e) {
+            console.error("Error al formatear fecha:", e);
+            const fallbackDate = now.toLocaleDateString('es', texts['es'].dateFormat);
+            const fallbackTime = now.toLocaleTimeString('es', texts['es'].dateFormat);
+            document.getElementById('current-date-time').textContent = `${fallbackDate} ${fallbackTime}`;
+        }
     }
 
     // ========== TRADUCCIONES COMPLETAS ========== //
