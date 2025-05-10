@@ -12,9 +12,10 @@ document.addEventListener("DOMContentLoaded", function() {
             themeButton.textContent = "🌙"; // Cambiar icono a luna
         }
     });
-// Función para actualizar fecha y hora
 function updateDateTime() {
     const now = new Date();
+    const lang = document.documentElement.lang || 'es'; // Obtenemos el idioma actual
+    
     const options = { 
         weekday: 'long', 
         year: 'numeric', 
@@ -22,19 +23,21 @@ function updateDateTime() {
         day: 'numeric',
         hour: '2-digit',
         minute: '2-digit',
-        second: '2-digit'
+        second: '2-digit',
+        timeZoneName: 'short'
     };
     
-    // Formatear según idioma seleccionado
-    const lang = localStorage.getItem('language') || 'es';
-    const dateTimeStr = now.toLocaleDateString(lang, options);
+    let dateTimeStr;
+    
+    try {
+        dateTimeStr = now.toLocaleDateString(lang, options) + ' ' + now.toLocaleTimeString(lang, options);
+    } catch (e) {
+        // Fallback en caso de error
+        dateTimeStr = now.toLocaleDateString('es', options) + ' ' + now.toLocaleTimeString('es', options);
+    }
     
     document.getElementById('current-date-time').textContent = dateTimeStr;
 }
-
-// Actualizar inmediatamente y cada segundo
-updateDateTime();
-setInterval(updateDateTime, 1000);
 
     // Textos en español e inglés
     const texts = {
@@ -96,6 +99,16 @@ setInterval(updateDateTime, 1000);
         
 copyright: "© 2024 Tina Calleja - Todos los derechos reservados"
     },
+dateFormat: {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            timeZone: 'Europe/Madrid'
+        },
         en: {
             pageTitle: "Tina Calleja - Resume",
             name: "Tina Calleja",
@@ -153,6 +166,16 @@ copyright: "© 2024 Tina Calleja - Todos los derechos reservados"
        
 copyright: "© 2024 Tina Calleja - All rights reserved"
     },
+dateFormat: {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            timeZone: 'UTC'
+        },
         eu: {
             pageTitle: "Tina Calleja - CV",
             name: "Tina Calleja",
@@ -207,9 +230,18 @@ copyright: "© 2024 Tina Calleja - All rights reserved"
 "healthcare": "Gizarte-Osasun Sektorea (2016)",
 "commerce": "Merkataritza Sektorea (2012)",
 "hospitality": "Ostalari Sektorea (2015 - 2018)",
-copyright: "© 2024 Tina Calleja - Eskubide guztiak erreserbatuta",
-
+copyright: "© 2024 Tina Calleja - Eskubide guztiak erreserbatuta", 
+dateFormat: {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            timeZone: 'Europe/Madrid'
         }
+ 
 };
 
     // Función para cambiar el idioma
@@ -228,7 +260,8 @@ copyright: "© 2024 Tina Calleja - Eskubide guztiak erreserbatuta",
         document.getElementById("github").textContent = texts[lang].github;
         document.getElementById("portfolio").textContent = texts[lang].portfolio;
         document.getElementById("curriculum").textContent = texts[lang].curriculum;
-    document.getElementById("copyright").textContent = texts[lang].copyright;
+
+document.documentElement.lang = lang;    document.getElementById("copyright").textContent = texts[lang].copyright;
     updateDateTime(); 
         document.getElementById("spanish").textContent = texts[lang].spanish;
         document.getElementById("basque").textContent = texts[lang].basque;
