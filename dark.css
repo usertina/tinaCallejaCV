@@ -132,3 +132,16 @@ button:hover {
 .lang-option:hover {
     text-decoration: underline;
 }
+.site-footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 15px;
+    font-size: 0.9em;
+    border-top: 1px solid;
+}
+
+/* Para dark.css */
+.site-footer {
+    border-color: #a2cffe;
+    color: #a2cffe;
+}
