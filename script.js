@@ -1,54 +1,44 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Cambio de tema (Modo claro/oscuro)
+    // ========== CONFIGURACIÓN INICIAL ========== //
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    const savedLang = localStorage.getItem('language') || 'es';
+    
+    // Aplicar tema guardado
+    document.getElementById('theme-style').setAttribute('href', `${savedTheme}.css`);
+    document.getElementById('theme-toggle').textContent = savedTheme === 'light' ? '🌙' : '🌞';
+
+    // ========== FUNCIONALIDAD TEMA OSCURO/CLARO ========== //
     document.getElementById("theme-toggle").addEventListener("click", function() {
-        let themeStyle = document.getElementById("theme-style");
-        let themeButton = document.getElementById("theme-toggle");
-
-        if (themeStyle.getAttribute("href") === "light.css") {
-            themeStyle.setAttribute("href", "dark.css"); // Cambiar a modo oscuro
-            themeButton.textContent = "🌞"; // Cambiar icono a sol
-        } else {
-            themeStyle.setAttribute("href", "light.css"); // Cambiar a modo claro
-            themeButton.textContent = "🌙"; // Cambiar icono a luna
-        }
+        const themeStyle = document.getElementById("theme-style");
+        const newTheme = themeStyle.getAttribute("href") === "light.css" ? "dark" : "light";
+        
+        themeStyle.setAttribute("href", `${newTheme}.css`);
+        this.textContent = newTheme === "light" ? "🌙" : "🌞";
+        localStorage.setItem('theme', newTheme);
     });
-function updateDateTime() {
-    const now = new Date();
-    const lang = document.documentElement.lang || 'es'; // Obtenemos el idioma actual
-    
-    const options = { 
-        weekday: 'long', 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        timeZoneName: 'short'
-    };
-    
-    let dateTimeStr;
-    
-    try {
-        dateTimeStr = now.toLocaleDateString(lang, options) + ' ' + now.toLocaleTimeString(lang, options);
-    } catch (e) {
-        // Fallback en caso de error
-        dateTimeStr = now.toLocaleDateString('es', options) + ' ' + now.toLocaleTimeString('es', options);
-    }
-    
-    document.getElementById('current-date-time').textContent = dateTimeStr;
-}
 
-    // Textos en español e inglés
+    // ========== FUNCIÓN FECHA/HORA ========== //
+    function updateDateTime() {
+        const now = new Date();
+        const lang = document.documentElement.lang || savedLang;
+        const options = texts[lang].dateFormat;
+        
+        document.getElementById('current-date-time').textContent = 
+            now.toLocaleDateString(lang, options) + ' ' + 
+            now.toLocaleTimeString(lang, options);
+    }
+
+    // ========== TRADUCCIONES COMPLETAS ========== //
     const texts = {
         es: {
+            // Secciones principales
             pageTitle: "Tina Calleja - CV",
             name: "Tina Calleja",
             title: "Desarrolladora Web Full Stack",
             aboutTitle: "Sobre Mí",
             aboutText: `Soy desarrolladora web full-stack con experiencia en backend y frontend, apasionada por la tecnología y la seguridad informática.
             Mi formación intensiva en desarrollo web, junto con mi actual formación en seguridad informática, me ha permitido adquirir habilidades clave en programación, análisis de datos y gestión eficiente de procesos.
-            Además, mi experiencia en diversos sectores me ha brindado una gran capacidad de adaptación, pensamiento analítico y trabajo en equipo, habilidades esenciales tanto en entornos de desarrollo como en la resolución de desafíos en ciberseguridad.`,
+            Además, mi experiencia en diversos sectores me ha brindado una gran capacidad de adaptación, pensamiento analítico y trabajo en equipo.`,
             educationTitle: "Formación Académica",
             experienceTitle: "Experiencia Laboral",
             languagesTitle: "Idiomas",
@@ -61,62 +51,63 @@ function updateDateTime() {
             spanish: "Castellano (nativo)",
             basque: "Euskera (básico)",
             english: "Inglés (técnico)",
+            copyright: "© 2024 Tina Calleja - Todos los derechos reservados",
 
             // Formación Académica
             "cybersecurity": "Seguridad Informática (IFCT0109)",
             "cybersecurity-details": "EDE Fundazioa (Febrero 2025 - Junio 2025)",
-            "cybersecurity-description": "420 horas en análisis de vulnerabilidades, protección de sistemas, detección de amenazas y prácticas con Raspberry Pi Pico y programación en MicroPython orientadas a seguridad y control de dispositivos.",
+            "cybersecurity-description": "420 horas en análisis de vulnerabilidades, protección de sistemas y detección de amenazas.",
             "java-course": "Curso de Java",
             "java-details": "Fundación EDE (Octubre 2024 - Diciembre 2024)",
-            "java-description": "210 horas en Programación Orientada a Objetos, estructuras de control y gestión de bases de datos relacionales.",
+            "java-description": "210 horas en Programación Orientada a Objetos y bases de datos relacionales.",
             "bootcamp": "Bootcamp Desarrollo Web Full-Stack",
             "bootcamp-details": "Kooperativa Peñascal (Noviembre 2023 - Junio 2024)",
             "bootcamp-description": "775 horas de formación intensiva en desarrollo web full-stack.",
             "urduliz": "Piscina Urduliz 42",
             "urduliz-details": "(Octubre 2023)",
-            "urduliz-description": "- Formación en lenguaje C con metodología de gamificación y aprendizaje colaborativo en entorno macOS.",
+            "urduliz-description": "Formación en lenguaje C con metodología de gamificación.",
             "android-course": "Curso Programación Aplicaciones Android",
             "android-details": "Fundación EDE (Octubre 2022 - Marzo 2023)",
             "android-description": "350 horas de desarrollo de aplicaciones nativas con Java y SQL.",
             "certification": "Certificado Profesionalidad Sistemas Microinformáticos",
             "certification-details": "IFAP (2017)",
-            "certification-description": " 560 horas en instalación y configuración de sistemas operativos, servidores y redes.",
+            "certification-description": "560 horas en instalación de sistemas operativos y redes.",
             "highschool": "Estudios de Bachillerato",
             "highschool-details": "I.E.S Errekaldeberri (2000)",
 
             // Experiencia Laboral
-            
-        "internships": "2024 - Prácticas",
-        "internships-details": "Desarrollo de procesamiento de datos en C++.",
-        "internships2": "2017 - Prácticas",
-        "internships2-details": "Instalación y configuración de servidores Windows Server 2012.",
-        "pesaje": "Pesaje del Norte - Bilbao",
-        "pesaje-details": "Informatización de datos con software específico.",
-        "manufacturing": "Sector Industria Manufacturera (2002 - 2008)",
-        "healthcare": "Sector Socio-Sanitario (2016)",
-        "commerce": "Sector Comercial (2012)",
-        "hospitality": "Sector Hostelería (2015 - 2018)",
-        
-copyright: "© 2024 Tina Calleja - Todos los derechos reservados"
-    },
-dateFormat: {
-            weekday: 'long',
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit',
-            timeZone: 'Europe/Madrid'
+            "internships": "2024 - Prácticas",
+            "internships-details": "Desarrollo de procesamiento de datos en C++.",
+            "internships2": "2017 - Prácticas",
+            "internships2-details": "Instalación de servidores Windows Server 2012.",
+            "pesaje": "Pesaje del Norte - Bilbao",
+            "pesaje-details": "Informatización de datos con software específico.",
+            "manufacturing": "Sector Industria Manufacturera (2002 - 2008)",
+            "healthcare": "Sector Socio-Sanitario (2016)",
+            "commerce": "Sector Comercial (2012)",
+            "hospitality": "Sector Hostelería (2015 - 2018)",
+
+            // Formato fecha
+            dateFormat: {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                timeZone: 'Europe/Madrid'
+            }
         },
         en: {
+            // Main sections
             pageTitle: "Tina Calleja - Resume",
             name: "Tina Calleja",
             title: "Full Stack Web Developer",
             aboutTitle: "About Me",
-            aboutText: `I am a full-stack web developer with experience in backend and frontend, passionate about technology and cybersecurity.
-            My intensive training in web development, along with my current studies in cybersecurity, has allowed me to acquire key skills in programming, data analysis, and efficient process management.
-            Additionally, my experience in various sectors has given me a strong ability to adapt, analytical thinking, and teamwork—essential skills both in development environments and in solving cybersecurity challenges.`,
+            aboutText: `I am a full-stack web developer with backend and frontend experience, passionate about technology and cybersecurity.
+            My intensive training in web development, along with my current cybersecurity studies, has given me key skills in programming, data analysis and efficient process management.
+            Additionally, my experience in various sectors has provided me with strong adaptability, analytical thinking and teamwork skills.`,
             educationTitle: "Education",
             experienceTitle: "Work Experience",
             languagesTitle: "Languages",
@@ -125,30 +116,31 @@ dateFormat: {
             linkedin: "LinkedIn",
             github: "GitHub",
             portfolio: "Portfolio",
-            curriculum: "Currículum Vitae",
+            curriculum: "Curriculum Vitae",
             spanish: "Spanish (native)",
             basque: "Basque (basic)",
             english: "English (technical)",
+            copyright: "© 2024 Tina Calleja - All rights reserved",
 
-            // Academic Background
+            // Education
             "cybersecurity": "Cybersecurity (IFCT0109)",
             "cybersecurity-details": "EDE Foundation (February 2025 - June 2025)",
-            "cybersecurity-description": "420 hours in vulnerability analysis, system protection, threat detection, and hands-on practice with Raspberry Pi Pico and MicroPython programming focused on security and device control.",
+            "cybersecurity-description": "420 hours in vulnerability analysis, system protection and threat detection.",
             "java-course": "Java Course",
-            "java-details": "Fundación EDE (October 2024 - December 2024)",
-            "java-description": "210 hours in Object-Oriented Programming, control structures, and relational database management.",
+            "java-details": "EDE Foundation (October 2024 - December 2024)",
+            "java-description": "210 hours in Object-Oriented Programming and relational databases.",
             "bootcamp": "Full-Stack Web Development Bootcamp",
-            "bootcamp-details": "Kooperativa Peñascal (November 2023 - June 2024)",
-            "bootcamp-description": "775 hours of intensive training in full-stack web development.",
-            "urduliz": "Piscina Urduliz 42",
+            "bootcamp-details": "Peñascal Kooperative (November 2023 - June 2024)",
+            "bootcamp-description": "775 hours of intensive full-stack web development training.",
+            "urduliz": "Urduliz 42 Pool",
             "urduliz-details": "(October 2023)",
-            "urduliz-description": "C language training using gamification and collaborative learning methodology in a macOS environment.",
-            "android-course": "Android Application Development Course",
-            "android-details": "Fundación EDE (October 2022 - March 2023)",
+            "urduliz-description": "C language training with gamification methodology.",
+            "android-course": "Android App Development Course",
+            "android-details": "EDE Foundation (October 2022 - March 2023)",
             "android-description": "350 hours of native app development with Java and SQL.",
-            "certification": "Professional Certificate in IT Systems",
+            "certification": "Professional IT Systems Certificate",
             "certification-details": "IFAP (2017)",
-            "certification-description": "560 hours in operating systems, servers and network installation and configuration.",
+            "certification-description": "560 hours in operating systems and network installation.",
             "highschool": "High School Studies",
             "highschool-details": "I.E.S Errekaldeberri (2000)",
 
@@ -156,34 +148,35 @@ dateFormat: {
             "internships": "2024 - Internship",
             "internships-details": "Data processing development in C++.",
             "internships2": "2017 - Internship",
-            "internships2-details": "Installation and configuration of Windows Server 2012.",
+            "internships2-details": "Windows Server 2012 installation.",
             "pesaje": "Pesaje del Norte - Bilbao",
             "pesaje-details": "Data digitization with specialized software.",
             "manufacturing": "Manufacturing Industry Sector (2002 - 2008)",
             "healthcare": "Healthcare Sector (2016)",
             "commerce": "Commercial Sector (2012)",
             "hospitality": "Hospitality Sector (2015 - 2018)",
-       
-copyright: "© 2024 Tina Calleja - All rights reserved"
-    },
-dateFormat: {
-            weekday: 'long',
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit',
-            timeZone: 'UTC'
+
+            // Date format
+            dateFormat: {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                timeZone: 'UTC'
+            }
         },
         eu: {
-            pageTitle: "Tina Calleja - CV",
+            // Atal nagusiak
+            pageTitle: "Tina Calleja - Curriculum",
             name: "Tina Calleja",
             title: "Full Stack Web Garatzailea",
             aboutTitle: "Niri Buruz",
-            aboutText: `Full-stack web garatzailea naiz, backend eta frontend esperientziarekin, teknologiaren eta zibersegurtasunaren zale.
-            Web garapeneko prestakuntza intentsiboari eta zibersegurtasunean egiten ari naizen ikasketei esker, programazioan, datuen analisian eta prozesuen kudeaketa eraginkorrean trebetasun garrantzitsuak eskuratu ditut.
-            Horrez gain, sektore ezberdinetako esperientziari esker, egokitzeko gaitasun handia, pentsamendu analitikoa eta talde-lanerako trebetasuna lortu ditut, bai garapen-inguruneetan bai zibersegurtasun erronkei aurre egitean funtsezkoak diren gaitasunak.`,
+            aboutText: `Full-stack web garatzailea naiz, backend eta frontend esperientziarekin, teknologiaren eta zibersegurtasunaren zalea.
+            Web garapeneko prestakuntza intentsiboari eta zibersegurtasunean egiten ari naizen ikasketei esker, programazioan, datuen analisian eta prozesuen kudeaketan trebetasunak eskuratu ditut.
+            Gainera, hainbat sektoretan izandako esperientziak egokitzeko gaitasuna, pentsamendu analitikoa eta talde-lana garatu ditut.`,
             educationTitle: "Hezkuntza",
             experienceTitle: "Lan Esperientzia",
             languagesTitle: "Hizkuntzak",
@@ -192,114 +185,87 @@ dateFormat: {
             linkedin: "LinkedIn",
             github: "GitHub",
             portfolio: "Portfolio",
-            curriculum: "Currículum Vitae",
+            curriculum: "Curriculum Vitae",
             spanish: "Gaztelania (ama hizkuntza)",
             basque: "Euskara (oinarrizkoa)",
             english: "Ingelesa (teknikoa)",
+            copyright: "© 2024 Tina Calleja - Eskubide guztiak erreserbatuta",
 
-           // Hezkuntza
+            // Hezkuntza
             "cybersecurity": "Zibersegurtasuna (IFCT0109)",
             "cybersecurity-details": "EDE Fundazioa (2025eko Otsaila - 2025eko Ekaina)",
-            "cybersecurity-description": "420 ordu ahultasunak aztertzen, sistemak babesten, mehatxuak detektatzen eta Raspberry Pi Pico-rekin eta MicroPython programazioarekin segurtasunerako eta gailuen kontrolerako praktikak egiten.",
+            "cybersecurity-description": "420 ordu ahultasunak aztertzen, sistemak babesten eta mehatxuak detektatzen.",
             "java-course": "Java Ikastaroa",
-            "java-details": "Fundación EDE (2024ko Urria - 2024ko Abendua)",
-            "java-description": "210 ordu, Objektuetara Bideratutako Programazioa, kontrol-egiturak eta erlazionatutako datu-baseen kudeaketa.",
+            "java-details": "EDE Fundazioa (2024ko Urria - 2024ko Abendua)",
+            "java-description": "210 ordu Objektuetara Bideratutako Programazioan eta datu-base erlazionaletan.",
             "bootcamp": "Full-Stack Web Garapen Bootcampa",
-            "bootcamp-details": "Kooperatiba Peñascal (2023ko Azaroa - 2024ko Ekaina)",
-            "bootcamp-description": "775 orduko prestakuntza intentsiboa full-stack web garapenean.",
+            "bootcamp-details": "Peñascal Kooperatiba (2023ko Azaroa - 2024ko Ekaina)",
+            "bootcamp-description": "775 orduko web garapen intentsiboa.",
             "urduliz": "Urduliz 42 Igerilekua",
             "urduliz-details": "(2023ko Urria)",
-            "urduliz-description": "C hizkuntzan prestakuntza, gamifikazioa eta ikaskuntza kolaboratiboa erabiliz macOS ingurune batean.",
+            "urduliz-description": "C hizkuntzako prestakuntza gamifikazio metodologiarekin.",
             "android-course": "Android Aplikazioen Garapen Ikastaroa",
-            "android-details": "Fundación EDE (2022ko Urria - 2023ko Martxoa)",
-            "android-description": "350 ordu, Java eta SQL erabiliz aplikazio natiboen garapenean.",
-            "certification": "Sistema Mikroinformatikoen Profesionaltasun Ziurtagiria",
+            "android-details": "EDE Fundazioa (2022ko Urria - 2023ko Martxoa)",
+            "android-description": "350 ordu Java eta SQL erabiliz aplikazio natiboak garatzen.",
+            "certification": "Sistema Mikroinformatikoen Ziurtagiri Profesionala",
             "certification-details": "IFAP (2017)",
-            "certification-description": "560 ordu sistema eragileetan, zerbitzariak eta sareen instalazio eta konfigurazioan.",
+            "certification-description": "560 ordu sistema eragileak eta sareak instalatzen.",
             "highschool": "Batxilergoko Ikasketak",
             "highschool-details": "I.E.S Errekaldeberri (2000)",
 
-// Lan Esperientzia
-"internships": "2024 - Praktikak",
-"internships-details": "Datu-prozesamenduaren garapena C++-n.",
-"internships2": "2017 - Praktikak",
-"internships2-details": "Windows Server 2012 instalazioa eta konfigurazioa.",
-"pesaje": "Pesaje del Norte - Bilbo",
-"pesaje-details": "Datuen digitalizazioa software espezializatua erabiliz.",
-"manufacturing": "Industria Ekoizpen Sektorea (2002 - 2008)",
-"healthcare": "Gizarte-Osasun Sektorea (2016)",
-"commerce": "Merkataritza Sektorea (2012)",
-"hospitality": "Ostalari Sektorea (2015 - 2018)",
-copyright: "© 2024 Tina Calleja - Eskubide guztiak erreserbatuta", 
-dateFormat: {
-            weekday: 'long',
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit',
-            timeZone: 'Europe/Madrid'
+            // Lan Esperientzia
+            "internships": "2024 - Praktikak",
+            "internships-details": "Datu-prozesamendua C++-n garatzen.",
+            "internships2": "2017 - Praktikak",
+            "internships2-details": "Windows Server 2012 instalatzen.",
+            "pesaje": "Pesaje del Norte - Bilbo",
+            "pesaje-details": "Datuak digitalizatzen software espezializatuarekin.",
+            "manufacturing": "Industria Ekoizpen Sektorea (2002 - 2008)",
+            "healthcare": "Gizarte-Osasun Sektorea (2016)",
+            "commerce": "Merkataritza Sektorea (2012)",
+            "hospitality": "Ostalari Sektorea (2015 - 2018)",
+
+            // Data formatua
+            dateFormat: {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                timeZone: 'Europe/Madrid'
+            }
         }
- 
-};
+    };
 
-    // Función para cambiar el idioma
+    // ========== FUNCIÓN CAMBIO DE IDIOMA ========== //
     function changeLanguage(lang) {
-        document.getElementById("page-title").textContent = texts[lang].pageTitle;
-        document.getElementById("name").textContent = texts[lang].name;
-        document.getElementById("title").textContent = texts[lang].title;
-        document.getElementById("about-title").textContent = texts[lang].aboutTitle;
-        document.getElementById("about-text").innerHTML = texts[lang].aboutText.replace(/\n/g, "<br>");
-        document.getElementById("education-title").textContent = texts[lang].educationTitle;
-        document.getElementById("experience-title").textContent = texts[lang].experienceTitle;
-        document.getElementById("languages-title").textContent = texts[lang].languagesTitle;
-        document.getElementById("contact-title").textContent = texts[lang].contactTitle;
-        document.getElementById("contact-text").textContent = texts[lang].contactText;
-        document.getElementById("linkedin").textContent = texts[lang].linkedin;
-        document.getElementById("github").textContent = texts[lang].github;
-        document.getElementById("portfolio").textContent = texts[lang].portfolio;
-        document.getElementById("curriculum").textContent = texts[lang].curriculum;
+        document.documentElement.lang = lang;
+        localStorage.setItem('language', lang);
 
-document.documentElement.lang = lang;    document.getElementById("copyright").textContent = texts[lang].copyright;
-    updateDateTime(); 
-        document.getElementById("spanish").textContent = texts[lang].spanish;
-        document.getElementById("basque").textContent = texts[lang].basque;
-        document.getElementById("english").textContent = texts[lang].english;
-    
-        // Actualizar textos de la formación académica
-        const educationElements = [
-    "java-course", "java-details", "java-description",
-    "bootcamp", "bootcamp-details", "bootcamp-description",
-    "urduliz", "urduliz-details", "urduliz-description",
-    "android-course", "android-details", "android-description",
-    "certification", "certification-details", "certification-description",
-    "highschool", "highschool-details",
-    "cybersecurity", "cybersecurity-details", "cybersecurity-description" // << AÑADIDO AQUÍ
-];
-
-        educationElements.forEach(id => {
-            if (document.getElementById(id)) {
-                document.getElementById(id).textContent = texts[lang][id];
+        // Actualizar todos los textos
+        Object.keys(texts[lang]).forEach(key => {
+            const element = document.getElementById(key);
+            if (element) {
+                if (key === "about-text") {
+                    element.innerHTML = texts[lang][key].replace(/\n/g, "<br>");
+                } else {
+                    element.textContent = texts[lang][key];
+                }
             }
         });
 
-        // Actualizar textos de la experiencia laboral
-        const experienceElements = [
-            "internships", "internships-details", "internships2", "internships2-details",
-            "pesaje", "pesaje-details", "manufacturing", "healthcare", "commerce", "hospitality"
-        ];
-
-        experienceElements.forEach(id => {
-            if (document.getElementById(id)) {
-                document.getElementById(id).textContent = texts[lang][id];
-            }
-        });
+        updateDateTime();
     }
 
-    // Listeners para los botones de cambio de idioma
+    // ========== INICIALIZACIÓN ========== //
+    changeLanguage(savedLang);
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+
+    // Event listeners para botones de idioma
     document.getElementById("lang-es").addEventListener("click", () => changeLanguage("es"));
     document.getElementById("lang-en").addEventListener("click", () => changeLanguage("en"));
     document.getElementById("lang-eu").addEventListener("click", () => changeLanguage("eu"));
 });
-
