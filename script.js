@@ -7,16 +7,6 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('theme-style').setAttribute('href', `${savedTheme}.css`);
     document.getElementById('theme-toggle').textContent = savedTheme === 'light' ? '🌙' : '🌞';
 
-    // ===== FUNCIONALIDAD TEMA OSCURO/CLARO ===== //
-    document.getElementById("theme-toggle").addEventListener("click", function() {
-        const themeStyle = document.getElementById("theme-style");
-        const newTheme = themeStyle.getAttribute("href") === "light.css" ? "dark" : "light";
-        
-        themeStyle.setAttribute("href", `${newTheme}.css`);
-        this.textContent = newTheme === "light" ? "🌙" : "🌞";
-        localStorage.setItem('theme', newTheme);
-    });
-
     // ===== FUNCIÓN FECHA/HORA ===== //
     function updateDateTime() {
         const now = new Date();
@@ -24,8 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const options = texts[lang].dateFormat;
         
         document.getElementById('current-date-time').textContent = 
-            now.toLocaleDateString(lang, options) + ' • ' + 
-            now.toLocaleTimeString(lang, options);
+            now.toLocaleString(lang, options);
     }
 
     // ===== TRADUCCIONES COMPLETAS ===== //
@@ -97,7 +86,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 day: 'numeric',
                 hour: '2-digit',
                 minute: '2-digit',
-                second: '2-digit',
                 timeZone: 'Europe/Madrid'
             }
         },
@@ -168,7 +156,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 day: 'numeric',
                 hour: '2-digit',
                 minute: '2-digit',
-                second: '2-digit',
                 timeZone: 'UTC'
             }
         },
@@ -239,7 +226,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 day: 'numeric',
                 hour: '2-digit',
                 minute: '2-digit',
-                second: '2-digit',
                 timeZone: 'Europe/Madrid'
             }
         }
@@ -250,24 +236,58 @@ document.addEventListener("DOMContentLoaded", function() {
         document.documentElement.lang = lang;
         localStorage.setItem('language', lang);
 
-        // Actualizar todos los textos
-        Object.keys(texts[lang]).forEach(key => {
+        // Lista completa de IDs a traducir
+        const translationKeys = [
+            // Títulos y textos generales
+            "page-title", "name", "title", "about-title", "about-text",
+            "education-title", "experience-title", "languages-title",
+            "contact-title", "contact-text", "copyright",
+            
+            // Enlaces
+            "linkedin", "github", "portfolio", "curriculum",
+            
+            // Idiomas
+            "spanish", "basque", "english",
+            
+            // Formación académica
+            "cybersecurity", "cybersecurity-details", "cybersecurity-description",
+            "java-course", "java-details", "java-description",
+            "bootcamp", "bootcamp-details", "bootcamp-description",
+            "urduliz", "urduliz-details", "urduliz-description",
+            "android-course", "android-details", "android-description",
+            "certification", "certification-details", "certification-description",
+            "highschool", "highschool-details",
+            
+            // Experiencia laboral
+            "internships", "internships-details", 
+            "internships2", "internships2-details",
+            "pesaje", "pesaje-details",
+            "manufacturing", "healthcare", "commerce", "hospitality",
+            "dandais", "aduogroup"
+        ];
+
+        translationKeys.forEach(key => {
             const element = document.getElementById(key);
             if (element) {
-                if (key === "about-text") {
-                    element.innerHTML = texts[lang][key].replace(/\n/g, "<br>");
-                } else {
-                    element.textContent = texts[lang][key];
-                }
+                element[key === "about-text" ? "innerHTML" : "textContent"] = 
+                    texts[lang][key].replace(/\n/g, "<br>");
             }
         });
 
         updateDateTime();
     }
 
+    // ===== FUNCIONALIDAD TEMA OSCURO/CLARO ===== //
+    document.getElementById("theme-toggle").addEventListener("click", function() {
+        const themeStyle = document.getElementById("theme-style");
+        const newTheme = themeStyle.getAttribute("href") === "light.css" ? "dark" : "light";
+        themeStyle.setAttribute("href", `${newTheme}.css`);
+        this.textContent = newTheme === "light" ? "🌙" : "🌞";
+        localStorage.setItem('theme', newTheme);
+    });
+
     // ===== INICIALIZACIÓN ===== //
     changeLanguage(savedLang);
-    updateDateTime();
     setInterval(updateDateTime, 1000);
 
     // Event listeners para botones de idioma
