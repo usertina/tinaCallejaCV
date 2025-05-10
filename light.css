@@ -124,3 +124,16 @@ button:hover {
 .language-switch span:hover {
     text-decoration: underline;
 }
+.site-footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 15px;
+    font-size: 0.9em;
+    border-top: 1px solid;
+}
+
+/* Para light.css */
+.site-footer {
+    border-color: #1e3c72;
+    color: #1e3c72;
+}
