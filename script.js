@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // ===== CONFIGURACIÓN INICIAL ===== //
     const savedTheme = localStorage.getItem('theme') || 'light';
     const savedLang = localStorage.getItem('language') || 'es';
-    
+
     // Aplicar configuración guardada
     document.documentElement.lang = savedLang;
     document.getElementById('theme-style').setAttribute('href', `${savedTheme}.css`);
@@ -19,12 +19,13 @@ document.addEventListener("DOMContentLoaded", function() {
             day: 'numeric',
             hour: '2-digit',
             minute: '2-digit',
+            second: '2-digit',
             timeZone: lang === 'en' ? 'UTC' : 'Europe/Madrid'
         };
 
         try {
             const dateStr = now.toLocaleDateString(lang, options);
-            const timeStr = now.toLocaleTimeString(lang, {hour: '2-digit', minute: '2-digit'});
+            const timeStr = now.toLocaleTimeString(lang, {hour: '2-digit', minute: '2-digit', second: '2-digit'});
             document.getElementById('current-date-time').textContent = `${dateStr} • ${timeStr}`;
         } catch (e) {
             console.error("Error formateando fecha:", e);
@@ -32,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // ===== TRADUCCIONES COMPLETAS (IDs CORREGIDOS) ===== //
+    // ===== TRADUCCIONES COMPLETAS ===== //
     const texts = {
         es: {
             // Secciones principales
@@ -91,54 +92,125 @@ document.addEventListener("DOMContentLoaded", function() {
             'commerce': "Sector Comercial (2012)",
             'hospitality': "Sector Hostelería (2015 - 2018)",
             'dandais': "D&A Innovative Systems",
-            'aduogroup': "Aduogroup Bilbao",
-
-            // Formato fecha
-            'dateFormat': {
-                weekday: 'long',
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit',
-                timeZone: 'Europe/Madrid'
-            }
+            'aduogroup': "Aduogroup Bilbao"
         },
         en: {
-            // ... (traducciones en inglés con la misma estructura y IDs con guiones)
-            // Ejemplo:
+            // Main sections
             'page-title': "Tina Calleja - Resume",
             'name': "Tina Calleja",
             'title': "Full Stack Web Developer",
             'about-title': "About Me",
-            // ... (resto de traducciones en inglés)
-            'dateFormat': {
-                weekday: 'long',
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit',
-                timeZone: 'UTC'
-            }
+            'about-text': `I am a full-stack web developer with backend and frontend experience, passionate about technology and cybersecurity.
+            My intensive training in web development, along with my current training in cybersecurity, has allowed me to acquire key skills in programming, data analysis and efficient process management.
+            In addition, my experience in various sectors has given me great adaptability, analytical thinking and teamwork skills, essential skills both in development environments and in solving cybersecurity challenges.`,
+            'education-title': "Education",
+            'experience-title': "Work Experience",
+            'languages-title': "Languages",
+            'contact-title': "Contact",
+            'contact-text': "📍 Bilbao, 48013",
+            'linkedin': "LinkedIn",
+            'github': "GitHub",
+            'portfolio': "Portfolio",
+            'curriculum': "Curriculum Vitae",
+            'spanish': "Spanish (native)",
+            'basque': "Basque (basic)",
+            'english': "English (technical)",
+            'copyright': "© 2024 Tina Calleja - All rights reserved",
+
+            // Education
+            'cybersecurity': "Cybersecurity (IFCT0109)",
+            'cybersecurity-details': "EDE Fundazioa (February 2025 - June 2025)",
+            'cybersecurity-description': "420 hours in vulnerability analysis, system protection, threat detection and practices with Raspberry Pi Pico and MicroPython programming oriented to security and device control.",
+            'java-course': "Java Course",
+            'java-details': "EDE Foundation (October 2024 - December 2024)",
+            'java-description': "210 hours in Object Oriented Programming, control structures and relational database management.",
+            'bootcamp': "Full-Stack Web Development Bootcamp",
+            'bootcamp-details': "Kooperativa Peñascal (November 2023 - June 2024)",
+            'bootcamp-description': "775 hours of intensive full-stack web development training.",
+            'urduliz': "Urduliz 42 Pool",
+            'urduliz-details': "(October 2023)",
+            'urduliz-description': "Training in C language with gamification methodology and collaborative learning in macOS environment.",
+            'android-course': "Android App Programming Course",
+            'android-details': "EDE Foundation (October 2022 - March 2023)",
+            'android-description': "350 hours of native app development with Java and SQL.",
+            'certification': "Microcomputer Systems Professional Certificate",
+            'certification-details': "IFAP (2017)",
+            'certification-description': "560 hours in installation and configuration of operating systems and networks.",
+            'highschool': "High School Studies",
+            'highschool-details': "I.E.S Errekaldeberri (2000)",
+
+            // Work Experience
+            'internships': "2024 - Internship",
+            'internships-details': "Data processing development in C++.",
+            'internships2': "2017 - Internship",
+            'internships2-details': "Installation and configuration of Windows Server 2012 servers.",
+            'pesaje': "Pesaje del Norte - Bilbao",
+            'pesaje-details': "Data computerization with specific software.",
+            'manufacturing': "Manufacturing Industry Sector (2002 - 2008)",
+            'healthcare': "Socio-Health Sector (2016)",
+            'commerce': "Commercial Sector (2012)",
+            'hospitality': "Hospitality Sector (2015 - 2018)",
+            'dandais': "D&A Innovative Systems",
+            'aduogroup': "Aduogroup Bilbao"
         },
         eu: {
-            // ... (traducciones en euskera con la misma estructura y IDs con guiones)
-            // Ejemplo:
+            // Atal nagusiak
             'page-title': "Tina Calleja - Curriculum",
             'name': "Tina Calleja",
             'title': "Full Stack Web Garatzailea",
             'about-title': "Niri Buruz",
-            // ... (resto de traducciones en euskera)
-            'dateFormat': {
-                weekday: 'long',
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit',
-                timeZone: 'Europe/Madrid'
-            }
+            'about-text': `Web garatzaile full-stack naiz atzeko eta aurreko esperientziarekin, teknologia eta zibersegurtasunaren zalea.
+            Web garapenean duten prestakuntza intentsiboak, eta gaur egungo zibersegurtasun prestakuntzak, programazioan, datuen analisian eta prozesuen kudeaketa eraginkorrean gaitasun gakoak eskuratzeko aukera eman dit.
+            Gainera, hainbat sektoretan izandako esperientziak egokitzeko gaitasun handia, pentsamendu analitikoa eta talde-lana egiteko trebetasunak eman dizkit, garapen inguruneetan zein zibersegurtasun erronketan ezinbestekoak diren trebetasunak.`,
+            'education-title': "Hezkuntza",
+            'experience-title': "Lan Esperientzia",
+            'languages-title': "Hizkuntzak",
+            'contact-title': "Kontaktua",
+            'contact-text': "📍 Bilbao, 48013",
+            'linkedin': "LinkedIn",
+            'github': "GitHub",
+            'portfolio': "Portfolio",
+            'curriculum': "Curriculum Vitae",
+            'spanish': "Gaztelania (jatorrizkoa)",
+            'basque': "Euskara (oinarrizkoa)",
+            'english': "Ingelesa (teknikoa)",
+            'copyright': "© 2024 Tina Calleja - Eskubide guztiak erreserbatuta",
+
+            // Hezkuntza
+            'cybersecurity': "Zibersegurtasuna (IFCT0109)",
+            'cybersecurity-details': "EDE Fundazioa (Otsaila 2025 - Ekaina 2025)",
+            'cybersecurity-description': "420 ordu hutsuneen analisian, sistemak babestean, mehatxuak detektatzean eta Raspberry Pi Pico eta MicroPython programazioarekin praktiketan, segurtasunari eta gailuen kontrolari begira.",
+            'java-course': "Java Ikastaroa",
+            'java-details': "EDE Fundazioa (Urria 2024 - Abendua 2024)",
+            'java-description': "210 ordu Objektuei Orientatutako Programazioan, kontrol egituretan eta datu-base erlazionalen kudeaketan.",
+            'bootcamp': "Full-Stack Web Garapen Bootcamp",
+            'bootcamp-details': "Peñascal Kooperatiba (Azaroa 2023 - Ekaina 2024)",
+            'bootcamp-description': "775 orduko web garapen full-stack formakuntza intentsiboa.",
+            'urduliz': "Urduliz 42 Pool",
+            'urduliz-details': "(Urria 2023)",
+            'urduliz-description': "C lengoaiaren formakuntza gamifikazio metodologia eta ikasketa kolaboratiboarekin macOS ingurunean.",
+            'android-course': "Android Aplikazioen Programazio Ikastaroa",
+            'android-details': "EDE Fundazioa (Urria 2022 - Martxoa 2023)",
+            'android-description': "350 ordu Java eta SQL-ekin aplikazio natiboak garatzen.",
+            'certification': "Mikroinformatika Sistemetako Ziurtagiri Profesionala",
+            'certification-details': "IFAP (2017)",
+            'certification-description': "560 ordu sistema eragileak eta sareak instalatzen eta konfiguratzen.",
+            'highschool': "Batxilergoko Ikasketak",
+            'highschool-details': "I.E.S Errekaldeberri (2000)",
+
+            // Lan Esperientzia
+            'internships': "2024 - Praktikak",
+            'internships-details': "Datu prozesamendua C++-n garatzen.",
+            'internships2': "2017 - Praktikak",
+            'internships2-details': "Windows Server 2012 zerbitzariak instalatzen eta konfiguratzen.",
+            'pesaje': "Pesaje del Norte - Bilbao",
+            'pesaje-details': "Datuak informatizatzen software espezifikoarekin.",
+            'manufacturing': "Manufaktura Industria Sektorea (2002 - 2008)",
+            'healthcare': "Gizarte-Osasun Sektorea (2016)",
+            'commerce': "Merkataritza Sektorea (2012)",
+            'hospitality': "Ostalaritza Sektorea (2015 - 2018)",
+            'dandais': "D&A Innovative Systems",
+            'aduogroup': "Aduogroup Bilbao"
         }
     };
 
@@ -168,7 +240,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         htmlIds.forEach(id => {
             const element = document.getElementById(id);
-            if (element && texts[lang][id]) {
+            if (element && texts[lang] && texts[lang][id]) {
                 if (id === 'about-text') {
                     element.innerHTML = texts[lang][id].replace(/\n/g, "<br>");
                 } else {
