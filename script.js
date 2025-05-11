@@ -8,31 +8,30 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('theme-style').setAttribute('href', `${savedTheme}.css`);
     document.getElementById('theme-toggle').textContent = savedTheme === 'light' ? '🌙' : '🌞';
 
-    // ===== FUNCIÓN FECHA/HORA ===== //
-    function updateDateTime() {
-        const now = new Date();
-        const lang = document.documentElement.lang;
-        const options = {
-            weekday: 'long',
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit',
-            timeZone: lang === 'en' ? 'UTC' : 'Europe/Madrid'
-        };
+   // ===== FUNCIÓN FECHA/HORA ===== //
+function updateDateTime() {
+    const now = new Date();
+    const lang = document.documentElement.lang;
+    const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        timeZone: lang === 'en' ? 'UTC' : 'Europe/Madrid'
+    };
 
-        try {
-            const dateStr = now.toLocaleDateString(lang, options);
-            const timeStr = now.toLocaleTimeString(lang, {hour: '2-digit', minute: '2-digit', second: '2-digit'});
-            document.getElementById('current-date-time').textContent = `${dateStr} • ${timeStr}`;
-        } catch (e) {
-            console.error("Error formateando fecha:", e);
-            document.getElementById('current-date-time').textContent = now.toLocaleString();
-        }
+    try {
+        // Usamos solo toLocaleString para mostrar fecha y hora juntas
+        const dateTimeStr = now.toLocaleString(lang, options);
+        document.getElementById('current-date-time').textContent = dateTimeStr;
+    } catch (e) {
+        console.error("Error formateando fecha:", e);
+        document.getElementById('current-date-time').textContent = now.toLocaleString();
     }
-
+} 
     // ===== TRADUCCIONES COMPLETAS ===== //
     const texts = {
         es: {
