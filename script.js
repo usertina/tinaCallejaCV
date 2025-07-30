@@ -6,31 +6,44 @@ document.addEventListener("DOMContentLoaded", function() {
     // Aplicar configuración guardada
     document.documentElement.lang = savedLang;
     document.getElementById('theme-style').setAttribute('href', `${savedTheme}.css`);
-    document.getElementById('theme-toggle').textContent = savedTheme === 'light' ? '🌙' : '🌞';
+    updateThemeButton(savedTheme);
 
-   // ===== FUNCIÓN FECHA/HORA ===== //
-function updateDateTime() {
-    const now = new Date();
-    const lang = document.documentElement.lang;
-    const options = {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit'
-    };
-
-    try {
-        // Usamos solo toLocaleString para mostrar fecha y hora juntas
-        const dateTimeStr = now.toLocaleString(lang, options);
-        document.getElementById('current-date-time').textContent = dateTimeStr;
-    } catch (e) {
-        console.error("Error formateando fecha:", e);
-        document.getElementById('current-date-time').textContent = now.toLocaleString();
+    // ===== FUNCIÓN ACTUALIZAR BOTÓN TEMA ===== //
+    function updateThemeButton(theme) {
+        const themeButton = document.getElementById('theme-toggle');
+        const icon = themeButton.querySelector('i');
+        
+        if (theme === 'light') {
+            icon.className = 'fas fa-moon';
+        } else {
+            icon.className = 'fas fa-sun';
+        }
     }
-} 
+
+    // ===== FUNCIÓN FECHA/HORA MEJORADA ===== //
+    function updateDateTime() {
+        const now = new Date();
+        const lang = document.documentElement.lang;
+        const options = {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            timeZoneName: 'short'
+        };
+
+        try {
+            const dateTimeStr = now.toLocaleString(lang === 'eu' ? 'eu-ES' : lang, options);
+            document.getElementById('current-date-time').textContent = dateTimeStr;
+        } catch (e) {
+            console.error("Error formateando fecha:", e);
+            document.getElementById('current-date-time').textContent = now.toLocaleString();
+        }
+    }
+
     // ===== TRADUCCIONES COMPLETAS ===== //
     const texts = {
         es: {
@@ -40,13 +53,13 @@ function updateDateTime() {
             'title': "Desarrolladora Web Full Stack",
             'about-title': "Sobre Mí",
             'about-text': `Soy desarrolladora web full-stack con experiencia en backend y frontend, apasionada por la tecnología y la seguridad informática.
-            Mi formación intensiva en desarrollo web, junto con mi actual formación en seguridad informática, me ha permitido adquirir habilidades clave en programación, análisis de datos y gestión eficiente de procesos.
+            Mi formación intensiva en desarrollo web, junto con mi formación en seguridad informática, me ha permitido adquirir habilidades clave en programación, análisis de datos y gestión eficiente de procesos.
             Además, mi experiencia en diversos sectores me ha brindado una gran capacidad de adaptación, pensamiento analítico y trabajo en equipo, habilidades esenciales tanto en entornos de desarrollo como en la resolución de desafíos en ciberseguridad.`,
             'education-title': "Formación Académica",
             'experience-title': "Experiencia Laboral",
             'languages-title': "Idiomas",
             'contact-title': "Contacto",
-            'contact-text': "📍 Bilbao, 48013",
+            'contact-text': "Bilbao, 48013",
             'linkedin': "LinkedIn",
             'github': "GitHub",
             'portfolio': "Portfolio",
@@ -80,18 +93,18 @@ function updateDateTime() {
 
             // Experiencia Laboral
             'internships': "2024 - Prácticas",
-'qubiz': "QUBIZ.TEAM",
-'qubiz-internship': "2025 - Prácticas",
-'qubiz-details': "Creación de una app para la búsqueda de papers científicos.<br>Python (backend), HTML5, CSS y JavaScript (frontend). 84 horas.",
-            'internships-details': "Desarrollo de procesamiento de datos en C++.",
+            'qubiz': "QUBIZ.TEAM",
+            'qubiz-internship': "2025 - Prácticas",
+            'qubiz-details': "Creación de una app para la búsqueda de papers científicos.<br>Python (backend), HTML5, CSS y JavaScript (frontend). 84 horas.",
+            'internships-details': "Desarrollo de procesamiento de datos en C++. 120 horas.",
             'internships2': "2017 - Prácticas",
-            'internships2-details': "Instalación y configuración de servidores Windows Server 2012.",
+            'internships2-details': "Instalación y configuración de servidores Windows Server 2012.40 horas",
             'pesaje': "Pesaje del Norte - Bilbao",
             'pesaje-details': "Informatización de datos con software específico.",
-            'manufacturing': "Sector Industria Manufacturera (2002 - 2008)",
-            'healthcare': "Sector Socio-Sanitario (2016)",
-            'commerce': "Sector Comercial (2012)",
-            'hospitality': "Sector Hostelería (2015 - 2018)",
+            'manufacturing': "Sector Industria Manufacturera",
+            'healthcare': "Sector Socio-Sanitario",
+            'commerce': "Sector Comercial",
+            'hospitality': "Sector Hostelería",
             'dandais': "D&A Innovative Systems",
             'aduogroup': "Aduogroup Bilbao"
         },
@@ -102,13 +115,13 @@ function updateDateTime() {
             'title': "Full Stack Web Developer",
             'about-title': "About Me",
             'about-text': `I am a full-stack web developer with backend and frontend experience, passionate about technology and cybersecurity.
-            My intensive training in web development, along with my current training in cybersecurity, has allowed me to acquire key skills in programming, data analysis and efficient process management.
+            My intensive training in web development, along with my training in cybersecurity, has allowed me to acquire key skills in programming, data analysis and efficient process management.
             In addition, my experience in various sectors has given me great adaptability, analytical thinking and teamwork skills, essential skills both in development environments and in solving cybersecurity challenges.`,
             'education-title': "Education",
             'experience-title': "Work Experience",
             'languages-title': "Languages",
             'contact-title': "Contact",
-            'contact-text': "📍 Bilbao, 48013",
+            'contact-text': "Bilbao, 48013",
             'linkedin': "LinkedIn",
             'github': "GitHub",
             'portfolio': "Portfolio",
@@ -142,18 +155,18 @@ function updateDateTime() {
 
             // Work Experience
             'internships': "2024 - Internship",
-'qubiz': "QUBIZ.TEAM",
-'qubiz-internship': "2025 - Internship",
-'qubiz-details': "Development of a scientific paper search app.<br>Python (backend), HTML5, CSS and JavaScript (frontend). 84 hours.",
-            'internships-details': "Data processing development in C++.",
+            'qubiz': "QUBIZ.TEAM",
+            'qubiz-internship': "2025 - Internship",
+            'qubiz-details': "Development of a scientific paper search app.<br>Python (backend), HTML5, CSS and JavaScript (frontend). 84 hours.",
+            'internships-details': "Data processing development in C++. 120 hours.",
             'internships2': "2017 - Internship",
-            'internships2-details': "Installation and configuration of Windows Server 2012 servers.",
+            'internships2-details': "Installation and configuration of Windows Server 2012 servers. 40 hours.",
             'pesaje': "Pesaje del Norte - Bilbao",
             'pesaje-details': "Data computerization with specific software.",
-            'manufacturing': "Manufacturing Industry Sector (2002 - 2008)",
-            'healthcare': "Socio-Health Sector (2016)",
-            'commerce': "Commercial Sector (2012)",
-            'hospitality': "Hospitality Sector (2015 - 2018)",
+            'manufacturing': "Manufacturing Industry Sector",
+            'healthcare': "Socio-Health Sector",
+            'commerce': "Commercial Sector",
+            'hospitality': "Hospitality Sector",
             'dandais': "D&A Innovative Systems",
             'aduogroup': "Aduogroup Bilbao"
         },
@@ -164,13 +177,13 @@ function updateDateTime() {
             'title': "Full Stack Web Garatzailea",
             'about-title': "Niri Buruz",
             'about-text': `Web garatzaile full-stack naiz atzeko eta aurreko esperientziarekin, teknologia eta zibersegurtasunaren zalea.
-            Web garapenean duten prestakuntza intentsiboak, eta gaur egungo zibersegurtasun prestakuntzak, programazioan, datuen analisian eta prozesuen kudeaketa eraginkorrean gaitasun gakoak eskuratzeko aukera eman dit.
+            Web garapenean duten prestakuntza intentsiboak, eta zibersegurtasun prestakuntzak, programazioan, datuen analisian eta prozesuen kudeaketa eraginkorrean gaitasun gakoak eskuratzeko aukera eman dit.
             Gainera, hainbat sektoretan izandako esperientziak egokitzeko gaitasun handia, pentsamendu analitikoa eta talde-lana egiteko trebetasunak eman dizkit, garapen inguruneetan zein zibersegurtasun erronketan ezinbestekoak diren trebetasunak.`,
             'education-title': "Hezkuntza",
             'experience-title': "Lan Esperientzia",
             'languages-title': "Hizkuntzak",
             'contact-title': "Kontaktua",
-            'contact-text': "📍 Bilbao, 48013",
+            'contact-text': "Bilbao, 48013",
             'linkedin': "LinkedIn",
             'github': "GitHub",
             'portfolio': "Portfolio",
@@ -204,27 +217,33 @@ function updateDateTime() {
 
             // Lan Esperientzia
             'internships': "2024 - Praktikak",
-'qubiz': "QUBIZ.TEAM",
-'qubiz-internship': "2025 - Praktikak",
-'qubiz-details': "Artikulu zientifikoak bilatzeko aplikazio baten garapena.<br>Python (backend), HTML5, CSS eta JavaScript (frontend). 84 ordu.",
-            'internships-details': "Datu prozesamendua C++-n garatzen.",
+            'qubiz': "QUBIZ.TEAM",
+            'qubiz-internship': "2025 - Praktikak",
+            'qubiz-details': "Artikulu zientifikoak bilatzeko aplikazio baten garapena.<br>Python (backend), HTML5, CSS eta JavaScript (frontend). 84 ordu.",
+            'internships-details': "Datu prozesamendua C++-n garatzen. 120 ordu.",
             'internships2': "2017 - Praktikak",
-            'internships2-details': "Windows Server 2012 zerbitzariak instalatzen eta konfiguratzen.",
+            'internships2-details': "Windows Server 2012 zerbitzariak instalatzen eta konfiguratzen. 40 ordu.",
             'pesaje': "Pesaje del Norte - Bilbao",
             'pesaje-details': "Datuak informatizatzen software espezifikoarekin.",
-            'manufacturing': "Manufaktura Industria Sektorea (2002 - 2008)",
-            'healthcare': "Gizarte-Osasun Sektorea (2016)",
-            'commerce': "Merkataritza Sektorea (2012)",
-            'hospitality': "Ostalaritza Sektorea (2015 - 2018)",
+            'manufacturing': "Manufaktura Industria Sektorea",
+            'healthcare': "Gizarte-Osasun Sektorea",
+            'commerce': "Merkataritza Sektorea",
+            'hospitality': "Ostalaritza Sektorea",
             'dandais': "D&A Innovative Systems",
             'aduogroup': "Aduogroup Bilbao"
         }
     };
 
-    // ===== FUNCIÓN CAMBIO DE IDIOMA ===== //
+    // ===== FUNCIÓN CAMBIO DE IDIOMA MEJORADA ===== //
     function changeLanguage(lang) {
         document.documentElement.lang = lang;
         localStorage.setItem('language', lang);
+
+        // Actualizar idioma activo visualmente
+        document.querySelectorAll('.lang-option').forEach(option => {
+            option.classList.remove('active');
+        });
+        document.getElementById(`lang-${lang}`).classList.add('active');
 
         // Lista completa de IDs del HTML
         const htmlIds = [
@@ -242,13 +261,13 @@ function updateDateTime() {
             'highschool', 'highschool-details',
             'internships', 'internships-details', 'internships2', 'internships2-details',
             'pesaje', 'pesaje-details', 'manufacturing', 'healthcare', 'commerce', 'hospitality',
-            'dandais', 'aduogroup','qubiz', 'qubiz-internship', 'qubiz-details'
+            'dandais', 'aduogroup', 'qubiz', 'qubiz-internship', 'qubiz-details'
         ];
 
         htmlIds.forEach(id => {
             const element = document.getElementById(id);
             if (element && texts[lang] && texts[lang][id]) {
-                if (id === 'about-text') {
+                if (id === 'about-text' || id === 'qubiz-details') {
                     element.innerHTML = texts[lang][id].replace(/\n/g, "<br>");
                 } else {
                     element.textContent = texts[lang][id];
@@ -259,7 +278,73 @@ function updateDateTime() {
         updateDateTime();
     }
 
-    // ===== EVENT LISTENERS ===== //
+    // ===== EFECTOS VISUALES MEJORADOS ===== //
+    function addVisualEffects() {
+        // Animación de entrada para cards
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observar todas las cards
+        document.querySelectorAll('.card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Efecto parallax sutil en el header
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.main-header');
+            if (parallax) {
+                const speed = scrolled * 0.5;
+                parallax.style.transform = `translateY(${speed}px)`;
+            }
+        });
+
+        // Animación de las barras de progreso de idiomas
+        setTimeout(() => {
+            document.querySelectorAll('.progress-fill').forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 500);
+            });
+        }, 1000);
+    }
+
+    // ===== FUNCIÓN DE TOGGLE DE TEMA MEJORADA ===== //
+    function toggleTheme() {
+        const themeStyle = document.getElementById("theme-style");
+        const currentTheme = themeStyle.getAttribute("href").replace('.css', '');
+        const newTheme = currentTheme === "light" ? "dark" : "light";
+        
+        // Transición suave
+        document.body.style.transition = 'all 0.3s ease';
+        
+        themeStyle.setAttribute("href", `${newTheme}.css`);
+        updateThemeButton(newTheme);
+        localStorage.setItem('theme', newTheme);
+        
+        // Limpiar transición después del cambio
+        setTimeout(() => {
+            document.body.style.transition = '';
+        }, 300);
+    }
+
+    // ===== EVENT LISTENERS MEJORADOS ===== //
     document.getElementById("lang-es").addEventListener("click", (e) => {
         e.preventDefault();
         changeLanguage("es");
@@ -275,16 +360,63 @@ function updateDateTime() {
         changeLanguage("eu");
     });
 
-    document.getElementById("theme-toggle").addEventListener("click", function() {
-        const themeStyle = document.getElementById("theme-style");
-        const newTheme = themeStyle.getAttribute("href") === "light.css" ? "dark" : "light";
-        themeStyle.setAttribute("href", `${newTheme}.css`);
-        this.textContent = newTheme === "light" ? "🌙" : "🌞";
-        localStorage.setItem('theme', newTheme);
+    document.getElementById("theme-toggle").addEventListener("click", toggleTheme);
+
+    // ===== FUNCIONALIDADES ADICIONALES ===== //
+    
+    // Smooth scroll para navegación interna (si se añaden enlaces de navegación)
+    document.addEventListener('click', (e) => {
+        if (e.target.matches('a[href^="#"]')) {
+            e.preventDefault();
+            const target = document.querySelector(e.target.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
     });
+
+    // Mejora de accesibilidad: navegación por teclado
+    document.addEventListener('keydown', (e) => {
+        // Cambio de tema con Ctrl/Cmd + D
+        if ((e.ctrlKey || e.metaKey) && e.key === 'd') {
+            e.preventDefault();
+            toggleTheme();
+        }
+        
+        // Cambio de idioma con Alt + L
+        if (e.altKey && e.key === 'l') {
+            e.preventDefault();
+            const currentLang = document.documentElement.lang;
+            const langs = ['es', 'en', 'eu'];
+            const currentIndex = langs.indexOf(currentLang);
+            const nextLang = langs[(currentIndex + 1) % langs.length];
+            changeLanguage(nextLang);
+        }
+    });
+
+    // Preloader simple
+    function showContent() {
+        document.body.style.opacity = '0';
+        document.body.style.transition = 'opacity 0.5s ease';
+        
+        setTimeout(() => {
+            document.body.style.opacity = '1';
+        }, 100);
+    }
 
     // ===== INICIALIZACIÓN ===== //
     changeLanguage(savedLang);
     updateDateTime();
+    addVisualEffects();
+    showContent();
+    
+    // Actualizar fecha/hora cada segundo
     setInterval(updateDateTime, 1000);
+    
+    // Log de inicialización
+    console.log(`%c🎨 CV de Tina Calleja cargado correctamente`, 'color: #60a5fa; font-size: 14px; font-weight: bold;');
+    console.log(`%cTema: ${savedTheme} | Idioma: ${savedLang}`, 'color: #94a3b8; font-size: 12px;');
 });
