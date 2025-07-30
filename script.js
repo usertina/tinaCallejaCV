@@ -80,6 +80,9 @@ function updateDateTime() {
 
             // Experiencia Laboral
             'internships': "2024 - Prácticas",
+'qubiz': "QUBIZ.TEAM",
+'qubiz-internship': "2025 - Prácticas",
+'qubiz-details': "Creación de una app para la búsqueda de papers científicos.<br>Python (backend), HTML5, CSS y JavaScript (frontend). 84 horas.",
             'internships-details': "Desarrollo de procesamiento de datos en C++.",
             'internships2': "2017 - Prácticas",
             'internships2-details': "Instalación y configuración de servidores Windows Server 2012.",
@@ -139,6 +142,9 @@ function updateDateTime() {
 
             // Work Experience
             'internships': "2024 - Internship",
+'qubiz': "QUBIZ.TEAM",
+'qubiz-internship': "2025 - Internship",
+'qubiz-details': "Development of a scientific paper search app.<br>Python (backend), HTML5, CSS and JavaScript (frontend). 84 hours.",
             'internships-details': "Data processing development in C++.",
             'internships2': "2017 - Internship",
             'internships2-details': "Installation and configuration of Windows Server 2012 servers.",
@@ -198,6 +204,9 @@ function updateDateTime() {
 
             // Lan Esperientzia
             'internships': "2024 - Praktikak",
+'qubiz': "QUBIZ.TEAM",
+'qubiz-internship': "2025 - Praktikak",
+'qubiz-details': "Artikulu zientifikoak bilatzeko aplikazio baten garapena.<br>Python (backend), HTML5, CSS eta JavaScript (frontend). 84 ordu.",
             'internships-details': "Datu prozesamendua C++-n garatzen.",
             'internships2': "2017 - Praktikak",
             'internships2-details': "Windows Server 2012 zerbitzariak instalatzen eta konfiguratzen.",
@@ -233,7 +242,7 @@ function updateDateTime() {
             'highschool', 'highschool-details',
             'internships', 'internships-details', 'internships2', 'internships2-details',
             'pesaje', 'pesaje-details', 'manufacturing', 'healthcare', 'commerce', 'hospitality',
-            'dandais', 'aduogroup'
+            'dandais', 'aduogroup','qubiz', 'qubiz-internship', 'qubiz-details'
         ];
 
         htmlIds.forEach(id => {
