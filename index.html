@@ -5,119 +5,318 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="page-title">Tina Calleja - CV</title>
     <link rel="stylesheet" href="light.css" id="theme-style">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <script src="script.js" defer></script>
 </head>
 <body>
+    <div class="animated-bg"></div>
+    
     <div class="container">
         <div class="header">
             <div class="theme-toggle">
-                <button id="theme-toggle">🌙</button>
+                <button id="theme-toggle" class="theme-btn">
+                    <i class="fas fa-moon"></i>
+                </button>
             </div>
             <div class="language-switch">
-                <span id="lang-es" class="lang-option">ES</span> | 
-                <span id="lang-en" class="lang-option">EN</span> | 
+                <span id="lang-es" class="lang-option active">ES</span>
+                <span class="separator">|</span>
+                <span id="lang-en" class="lang-option">EN</span>
+                <span class="separator">|</span>
                 <span id="lang-eu" class="lang-option">EU</span>
             </div>
         </div>
 
-        <header>
-            <img src="img/tina.jpg" class="foto-perfil">
-            <h1 id="name">Tina Calleja</h1>
-            <h2 id="title">Desarrolladora Web Full Stack</h2>
+        <header class="main-header">
+            <div class="profile-section">
+                <div class="photo-container">
+                    <img src="img/tina.jpg" class="foto-perfil" alt="Tina Calleja">
+                    <div class="photo-overlay"></div>
+                </div>
+                <div class="header-content">
+                    <h1 id="name" class="name-title">Tina Calleja</h1>
+                    <h2 id="title" class="job-title">Desarrolladora Web Full Stack</h2>
+                </div>
+            </div>
         </header>
 
-        <section class="sobre-mi">
-            <h3 id="about-title">Sobre Mí</h3>
-            <p id="about-text">
-                Soy desarrolladora web full-stack con experiencia en backend y frontend, apasionada por la tecnología y la seguridad informática.
-                Mi formación intensiva en desarrollo web, junto con mi actual formación en seguridad informática, me ha permitido adquirir habilidades clave en programación, análisis de datos y gestión eficiente de procesos.<br>
-                Además, mi experiencia en diversos sectores me ha brindado una gran capacidad de adaptación, pensamiento analítico y trabajo en equipo, habilidades esenciales tanto en entornos de desarrollo como en la resolución de desafíos en ciberseguridad.
-            </p>
-        </section>
+        <div class="content-grid">
+            <section class="card sobre-mi">
+                <div class="card-header">
+                    <h3 id="about-title">
+                        <i class="fas fa-user"></i>
+                        Sobre Mí
+                    </h3>
+                </div>
+                <div class="card-content">
+                    <p id="about-text">
+                        Soy desarrolladora web full-stack con experiencia en backend y frontend, apasionada por la tecnología y la seguridad informática.
+                        Mi formación intensiva en desarrollo web, junto con mi formación en seguridad informática, me ha permitido adquirir habilidades clave en programación, análisis de datos y gestión eficiente de procesos.<br>
+                        Además, mi experiencia en diversos sectores me ha brindado una gran capacidad de adaptación, pensamiento analítico y trabajo en equipo, habilidades esenciales tanto en entornos de desarrollo como en la resolución de desafíos en ciberseguridad.
+                    </p>
+                </div>
+            </section>
 
-        <section class="formacion">
-            <h3 id="education-title">Formación Académica</h3>
-            <ul>
-                <li><strong id="cybersecurity">Seguridad Informática (IFCT0109)</strong>: 
-                    <span id="cybersecurity-details">EDE Fundazioa (Febrero 2025 - Junio 2025)</span>
-                    <span id="cybersecurity-description"><br>420 horas en análisis de vulnerabilidades, protección de sistemas, detección de amenazas y prácticas con Raspberry Pi Pico y programación en MicroPython orientadas a seguridad y control de dispositivos.</span>
-                </li>
-                <li><strong id="java-course">Curso de Java</strong>: 
-                    <span id="java-details">Fundación EDE (Octubre 2024 - Diciembre 2024)</span>
-                    <span id="java-description"><br>210 horas en Programación Orientada a Objetos, estructuras de control y gestión de bases de datos relacionales.</span>
-                </li>
-                <li><strong id="bootcamp">Bootcamp Desarrollo Web Full-Stack</strong>: 
-                    <span id="bootcamp-details">Kooperativa Peñascal (Noviembre 2023 - Junio 2024)</span>
-                    <span id="bootcamp-description">775 horas de formación intensiva en desarrollo web full-stack.</span>
-                </li>
-                <li><strong id="urduliz">Piscina Urduliz 42</strong>: 
-                    <span id="urduliz-details">(Octubre 2023)</span>
-                    <span id="urduliz-description">Formación en lenguaje C con metodología de gamificación y aprendizaje colaborativo en entorno macOS.</span>
-                </li>
-                <li><strong id="android-course">Curso Programación Aplicaciones Android</strong>:
-                    <span id="android-details">Fundación EDE (Octubre 2022 - Marzo 2023)</span>
-                    <span id="android-description"><br>350 horas de desarrollo de aplicaciones nativas con Java y SQL.</span>
-                </li>
-                <li><strong id="certification">Certificado Profesionalidad Sistemas Microinformáticos</strong>:
-                    <span id="certification-details">IFAP (2017)</span>
-                    <span id="certification-description"><br>560 horas en instalación y configuración de sistemas operativos y redes.</span>
-                </li>
-                <li><strong id="highschool">Estudios de Bachillerato</strong>: 
-                    <span id="highschool-details">I.E.S Errekaldeberri (2000)</span>
-                </li>
-            </ul>
-        </section>
+            <section class="card formacion">
+                <div class="card-header">
+                    <h3 id="education-title">
+                        <i class="fas fa-graduation-cap"></i>
+                        Formación Académica
+                    </h3>
+                </div>
+                <div class="card-content">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker current"></div>
+                            <div class="timeline-content">
+                                <h4 id="cybersecurity">Seguridad Informática (IFCT0109)</h4>
+                                <p class="timeline-date" id="cybersecurity-details">EDE Fundazioa (Febrero 2025 - Junio 2025)</p>
+                                <p class="timeline-desc" id="cybersecurity-description">420 horas en análisis de vulnerabilidades, protección de sistemas, detección de amenazas y prácticas con Raspberry Pi Pico y programación en MicroPython orientadas a seguridad y control de dispositivos.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4 id="java-course">Curso de Java</h4>
+                                <p class="timeline-date" id="java-details">Fundación EDE (Octubre 2024 - Diciembre 2024)</p>
+                                <p class="timeline-desc" id="java-description">210 horas en Programación Orientada a Objetos, estructuras de control y gestión de bases de datos relacionales.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4 id="bootcamp">Bootcamp Desarrollo Web Full-Stack</h4>
+                                <p class="timeline-date" id="bootcamp-details">Kooperativa Peñascal (Noviembre 2023 - Junio 2024)</p>
+                                <p class="timeline-desc" id="bootcamp-description">775 horas de formación intensiva en desarrollo web full-stack.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4 id="urduliz">Piscina Urduliz 42</h4>
+                                <p class="timeline-date" id="urduliz-details">(Octubre 2023)</p>
+                                <p class="timeline-desc" id="urduliz-description">Formación en lenguaje C con metodología de gamificación y aprendizaje colaborativo en entorno macOS.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4 id="android-course">Curso Programación Aplicaciones Android</h4>
+                                <p class="timeline-date" id="android-details">Fundación EDE (Octubre 2022 - Marzo 2023)</p>
+                                <p class="timeline-desc" id="android-description">350 horas de desarrollo de aplicaciones nativas con Java y SQL.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4 id="certification">Certificado Profesionalidad Sistemas Microinformáticos</h4>
+                                <p class="timeline-date" id="certification-details">IFAP (2017)</p>
+                                <p class="timeline-desc" id="certification-description">560 horas en instalación y configuración de sistemas operativos y redes.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4 id="highschool">Estudios de Bachillerato</h4>
+                                <p class="timeline-date" id="highschool-details">I.E.S Errekaldeberri (2000)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-        <section class="experiencia">
-            <h3 id="experience-title">Experiencia Laboral</h3>
-            <ul>
-<li>
-            <strong id="qubiz">QUBIZ.TEAM</strong> (<span id="qubiz-internship">2025 - Prácticas</span>)<br>
-            - <span id="qubiz-details">Creación de una app para la búsqueda de papers científicos.
-<br>
-Python (backend), HTML5, CSS y JavaScript (frontend). 84 horas.</span>
-        </li>  
-              <li>
-                    <strong id="dandais">D&A Innovative Systems</strong> (<span id="internships">2024 - Prácticas</span>)<br>
-                    - <span id="internships-details">Desarrollo de procesamiento de datos en C++.</span>
-                </li>
-                <li>
-                    <strong id="aduogroup">Aduogroup Bilbao</strong> (<span id="internships2">2017 - Prácticas</span>)<br>
-                    - <span id="internships2-details">Instalación y configuración de servidores Windows Server 2012.</span>
-                </li>
-                <li>
-                    <strong id="pesaje">Pesaje del Norte - Bilbao</strong> (2008)<br>
-                    - <span id="pesaje-details">Informatización de datos con software específico.</span>
-                </li>
-                <li><strong id="manufacturing">Sector Industria Manufacturera</strong> (2002 - 2008)</li>
-                <li><strong id="healthcare">Sector Socio-Sanitario</strong> (2016)</li>
-                <li><strong id="commerce">Sector Comercial</strong> (2012)</li>
-                <li><strong id="hospitality">Sector Hostelería</strong> (2015 - 2018)</li>
-            </ul>
-        </section>
+            <section class="card experiencia">
+                <div class="card-header">
+                    <h3 id="experience-title">
+                        <i class="fas fa-briefcase"></i>
+                        Experiencia Laboral
+                    </h3>
+                </div>
+                <div class="card-content">
+                    <div class="experience-grid">
+                        <div class="experience-item highlight">
+                            <div class="experience-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="experience-content">
+                                <h4 id="qubiz">QUBIZ.TEAM</h4>
+                                <p class="experience-date" id="qubiz-internship">2025 - Prácticas</p>
+                                <p class="experience-desc" id="qubiz-details">Creación de una app para la búsqueda de papers científicos.<br>Python (backend), HTML5, CSS y JavaScript (frontend).<br>84 horas.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="experience-item">
+                            <div class="experience-icon">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <div class="experience-content">
+                                <h4 id="dandais">D&A Innovative Systems</h4>
+                                <p class="experience-date" id="internships">2024 - Prácticas</p>
+                                <p class="experience-desc" id="internships-details">Desarrollo de procesamiento de datos en C++. <br>120 horas.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="experience-item">
+                            <div class="experience-icon">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <div class="experience-content">
+                                <h4 id="aduogroup">Aduogroup Bilbao</h4>
+                                <p class="experience-date" id="internships2">2017 - Prácticas</p>
+                                <p class="experience-desc" id="internships2-details">Instalación y configuración de servidores Windows Server 2012.<br>40 horas.</p> 
+                            </div>
+                        </div>
+                        
+                        <div class="experience-item">
+                            <div class="experience-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div class="experience-content">
+                                <h4 id="pesaje">Pesaje del Norte - Bilbao</h4>
+                                <p class="experience-date">2008</p>
+                                <p class="experience-desc" id="pesaje-details">Informatización de datos con software específico.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="experience-item">
+                            <div class="experience-icon">
+                                <i class="fas fa-industry"></i>
+                            </div>
+                            <div class="experience-content">
+                                <h4 id="manufacturing">Sector Industria Manufacturera</h4>
+                                <p class="experience-date">(2002 - 2008)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="experience-item">
+                            <div class="experience-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="experience-content">
+                                <h4 id="healthcare">Sector Socio-Sanitario</h4>
+                                <p class="experience-date">(2016)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="experience-item">
+                            <div class="experience-icon">
+                                <i class="fas fa-store"></i>
+                            </div>
+                            <div class="experience-content">
+                                <h4 id="commerce">Sector Comercial</h4>
+                                <p class="experience-date">(2012)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="experience-item">
+                            <div class="experience-icon">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <div class="experience-content">
+                                <h4 id="hospitality">Sector Hostelería</h4>
+                                <p class="experience-date">(2015 - 2018)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-        <section class="idiomas">
-            <h3 id="languages-title">Idiomas</h3>
-            <ul>
-                <li id="spanish">Castellano (nativo)</li>
-                <li id="basque">Euskera (básico)</li>
-                <li id="english">Inglés (técnico)</li>
-            </ul>
-        </section>
+            <section class="card idiomas">
+                <div class="card-header">
+                    <h3 id="languages-title">
+                        <i class="fas fa-language"></i>
+                        Idiomas
+                    </h3>
+                </div>
+                <div class="card-content">
+                    <div class="language-skills">
+                        <div class="language-item">
+                            <div class="language-info">
+                                <span id="spanish">Castellano (nativo)</span>
+                                <span class="language-level">100%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 100%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="language-item">
+                            <div class="language-info">
+                                <span id="english">Inglés (técnico)</span>
+                                <span class="language-level">75%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="language-item">
+                            <div class="language-info">
+                                <span id="basque">Euskera (básico)</span>
+                                <span class="language-level">40%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 40%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-        <section class="contacto">
-            <h3 id="contact-title">Contacto</h3>
-            <p id="contact-text">📍 Bilbao, 48013</p>
-            <p>📧 <a href="mailto:agustinacalleja@gmail.com">agustinacalleja@gmail.com</a></p>
-            <p>🔗 <a id="linkedin" href="https://www.linkedin.com/in/tina-calleja" target="_blank">LinkedIn</a></p>
-            <p>🔗 <a id="github" href="https://github.com/usertina" target="_blank">GitHub</a></p>
-            <p>🔗 <a id="portfolio" href="https://portfolio-seguridad-tina-calleja.netlify.app/" target="_blank">Portfolio</a></p>
-            <p>🔗 <a id="curriculum" href="https://tina-calleja.my.canva.site/curriculum-web-developer" target="_blank">Currículum Vitae</a></p>
-        </section>
+            <section class="card contacto">
+                <div class="card-header">
+                    <h3 id="contact-title">
+                        <i class="fas fa-envelope"></i>
+                        Contacto
+                    </h3>
+                </div>
+                <div class="card-content">
+                    <div class="contact-grid">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span id="contact-text">Bilbao, 48013</span>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:agustinacalleja@gmail.com">agustinacalleja@gmail.com</a>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fab fa-linkedin"></i>
+                            <a id="linkedin" href="https://www.linkedin.com/in/tina-calleja" target="_blank">LinkedIn</a>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fab fa-github"></i>
+                            <a id="github" href="https://github.com/usertina" target="_blank">GitHub</a>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-briefcase"></i>
+                            <a id="portfolio" href="https://portfolio-seguridad-tina-calleja.netlify.app/" target="_blank">Portfolio</a>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-file-alt"></i>
+                            <a id="curriculum" href="https://tina-calleja.my.canva.site/curriculum-web-developer" target="_blank">Currículum Vitae</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
 
         <footer class="site-footer">
-            <p id="copyright">© 2024 Tina Calleja - Todos los derechos reservados</p>
-            <p id="current-date-time"></p>
+            <div class="footer-content">
+                <p id="copyright">© 2024 Tina Calleja - Todos los derechos reservados</p>
+                <p id="current-date-time" class="datetime"></p>
+            </div>
         </footer>
     </div>
 </body>
